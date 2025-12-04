@@ -4,6 +4,7 @@
 #include "../shapes/Sphere.h"
 #include "../shapes/Cylinder.h"
 #include "../shapes/Cone.h"
+#include <memory>
 
 
 ShapeFactory::ShapeFactory() = default;
@@ -39,18 +40,22 @@ void ShapeFactory::initShapes(int param1, int param2) {
     m_param1 = param1;
     m_param2 = param2;
 
+    Cube cube;
+    Sphere sphere;
+    Cylinder cylinder;
+    Cone cone;
 
     m_shapeMap[PrimitiveType::PRIMITIVE_CUBE] =
-        createShapeData(*std::make_unique<Cube>(), param1, param2);
+        createShapeData(cube, param1, param2);
 
     m_shapeMap[PrimitiveType::PRIMITIVE_SPHERE] =
-        createShapeData(*std::make_unique<Sphere>(), param1, param2);
+        createShapeData(sphere, param1, param2);
 
     m_shapeMap[PrimitiveType::PRIMITIVE_CYLINDER] =
-        createShapeData(*std::make_unique<Cylinder>(), param1, param2);
+        createShapeData(cylinder, param1, param2);
 
     m_shapeMap[PrimitiveType::PRIMITIVE_CONE] =
-        createShapeData(*std::make_unique<Cone>(), param1, param2);
+        createShapeData(cone, param1, param2);
 }
 
 

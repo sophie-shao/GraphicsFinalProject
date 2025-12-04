@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="resources/shaders/default.frag">C:/Users/swsha/GraphicsFinalProject/resources/shaders/default.frag</file>
+    <file alias="resources/shaders/default.vert">C:/Users/swsha/GraphicsFinalProject/resources/shaders/default.vert</file>
+    <file alias="resources/shaders/debug.frag">C:/Users/swsha/GraphicsFinalProject/resources/shaders/debug.frag</file>
+    <file alias="resources/shaders/debug.vert">C:/Users/swsha/GraphicsFinalProject/resources/shaders/debug.vert</file>
+    <file alias="resources/shaders/phong.frag">C:/Users/swsha/GraphicsFinalProject/resources/shaders/phong.frag</file>
+    <file alias="resources/shaders/phong.vert">C:/Users/swsha/GraphicsFinalProject/resources/shaders/phong.vert</file>
+  </qresource>
+</RCC>
+
