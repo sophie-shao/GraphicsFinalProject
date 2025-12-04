@@ -4,6 +4,8 @@
 #include "../shapes/Sphere.h"
 #include "../shapes/Cylinder.h"
 #include "../shapes/Cone.h"
+#include <memory>
+#include "utils/debug.h"
 
 
 ShapeFactory::ShapeFactory() = default;
@@ -39,9 +41,13 @@ void ShapeFactory::initShapes(int param1, int param2) {
     m_param1 = param1;
     m_param2 = param2;
 
+    // glErrorCheck();
+
 
     m_shapeMap[PrimitiveType::PRIMITIVE_CUBE] =
         createShapeData(*std::make_unique<Cube>(), param1, param2);
+
+    glErrorCheck();
 
     m_shapeMap[PrimitiveType::PRIMITIVE_SPHERE] =
         createShapeData(*std::make_unique<Sphere>(), param1, param2);
