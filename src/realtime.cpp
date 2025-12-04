@@ -106,9 +106,9 @@ void Realtime::initializeGL() {
     m_k_sLoc = glGetUniformLocation(m_shaderProgram, "k_s");
     m_shininessLoc = glGetUniformLocation(m_shaderProgram, "shininess");
 
-    makeCurrent();
+    // makeCurrent();
     m_shapeManager.initShapes(settings.shapeParameter1, settings.shapeParameter2);
-    doneCurrent();
+    // doneCurrent();
     glErrorCheck();
 }
 

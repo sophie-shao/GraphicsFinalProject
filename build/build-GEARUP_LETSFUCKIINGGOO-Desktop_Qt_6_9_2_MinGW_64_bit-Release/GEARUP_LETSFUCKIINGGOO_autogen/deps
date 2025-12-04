@@ -455,6 +455,7 @@ GEARUP_LETSFUCKIINGGOO_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake \
+<<<<<<< HEAD
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCCompilerABI.c \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCInformation.cmake \
@@ -473,10 +474,17 @@ GEARUP_LETSFUCKIINGGOO_autogen/timestamp: \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineRCCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake \
+=======
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCInformation.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake \
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake \
+<<<<<<< HEAD
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeNinjaFindMake.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeParseImplicitIncludeInfo.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeParseImplicitLinkInfo.cmake \
@@ -490,11 +498,17 @@ GEARUP_LETSFUCKIINGGOO_autogen/timestamp: \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCompilerCommon.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestRCCompiler.cmake \
+=======
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake \
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCXXCompilerFlag.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckIncludeFile.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckLibraryExists.cmake \
+<<<<<<< HEAD
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/ADSP-DetermineCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
@@ -553,17 +567,29 @@ GEARUP_LETSFUCKIINGGOO_autogen/timestamp: \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/zOS-C-DetermineCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
+=======
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU.cmake \
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindPackageMessage.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindVulkan.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake \
+<<<<<<< HEAD
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckCompilerFlag.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckFlagCommonConfig.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-Determine-CXX.cmake \
+=======
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckCompilerFlag.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckFlagCommonConfig.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake \
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
@@ -831,6 +857,7 @@ GEARUP_LETSFUCKIINGGOO_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+<<<<<<< HEAD
 	C:/Users/swsha/GraphicsFinalProject/CMakeLists.txt \
 	C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qtc/package-manager/auto-setup.cmake \
 	C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qtc/package-manager/maintenance_tool_provider.cmake \
@@ -1031,4 +1058,207 @@ GEARUP_LETSFUCKIINGGOO_autogen/timestamp: \
 	C:/Users/swsha/GraphicsFinalProject/src/utils/shapefactory.cpp \
 	C:/Users/swsha/GraphicsFinalProject/src/utils/shapefactory.h \
 	C:/Users/swsha/GraphicsFinalProject/src/utils/transforms.h \
+=======
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/CMakeLists.txt \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qtc/package-manager/auto-setup.cmake \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qtc/package-manager/maintenance_tool_provider.cmake \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeCCompiler.cmake \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeSystem.cmake \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/moc_predefs.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glew/include/GL/glew.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/common.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/_fixes.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/_vectorize.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/compute_common.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/compute_vector_relational.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_common.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_exponential.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_geometric.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_integer.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_matrix.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_packing.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_trigonometric.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/func_vector_relational.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/qualifier.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/setup.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_half.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_half.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat2x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat2x2.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat2x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat2x3.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat2x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat2x4.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat3x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat3x2.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat3x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat3x3.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat3x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat3x4.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat4x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat4x2.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat4x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat4x3.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat4x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_mat4x4.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec1.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec1.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec2.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec3.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/detail/type_vec4.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/exponential.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_clip_space.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_clip_space.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double2x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double2x2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double2x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double2x3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double2x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double2x4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double3x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double3x2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double3x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double3x3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double3x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double3x4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double4x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double4x2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double4x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double4x3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double4x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_double4x4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float2x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float2x2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float2x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float2x3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float2x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float2x4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float3x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float3x2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float3x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float3x3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float3x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float3x4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float4x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float4x2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float4x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float4x3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float4x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_float4x4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_projection.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_projection.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_transform.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/matrix_transform.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/scalar_constants.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/scalar_constants.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/scalar_int_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/scalar_uint_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_bool2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_bool2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_bool3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_bool3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_bool4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_bool4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_double2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_double2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_double3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_double3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_double4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_double4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_float2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_float2_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_float3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_float3_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_float4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_float4_precision.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_int2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_int2_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_int3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_int3_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_int4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_int4_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_uint2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_uint2_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_uint3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_uint3_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_uint4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/ext/vector_uint4_sized.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/fwd.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/geometric.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/glm.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/gtc/constants.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/gtc/constants.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/gtc/matrix_transform.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/gtc/matrix_transform.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/gtx/transform.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/gtx/transform.inl \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/integer.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat2x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat2x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat2x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat3x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat3x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat3x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat4x2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat4x3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/mat4x4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/matrix.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/packing.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/simd/platform.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/trigonometric.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/vec2.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/vec3.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/vec4.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm/vector_relational.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/blocks/Block.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/blocks/Block.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/main.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/mainwindow.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/mainwindow.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Chunk.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Chunk.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Map.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Map.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilder.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilder.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilderwidget.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilderwidget.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapproperties.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapproperties.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/physics.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/physics.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/rendering.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/rendering.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/settings.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/settings.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cone.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cone.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cube.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cube.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cylinder.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cylinder.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Shape.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Sphere.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Sphere.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/aspectratiowidget/aspectratiowidget.hpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/camera.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/camera.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/debug.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/scenedata.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/scenefilereader.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/scenefilereader.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/sceneparser.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/sceneparser.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/shaderloader.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/shapefactory.cpp \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/shapefactory.h \
+	C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/transforms.h \
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/swsha/GraphicsFinalProject
+=======
+# Install script for directory: C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +43,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+<<<<<<< HEAD
   include("C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/glm/cmake_install.cmake")
+=======
+  include("C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/glm/cmake_install.cmake")
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -57,6 +65,10 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
   file(WRITE "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/${CMAKE_INSTALL_MANIFEST}"
+=======
+  file(WRITE "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

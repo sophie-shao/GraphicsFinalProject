@@ -1,5 +1,6 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
+<<<<<<< HEAD
 	"BUILD_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen",
 	"CMAKE_BINARY_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug",
@@ -14,6 +15,22 @@
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeNinjaFindMake.cmake",
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/maintenance_tool_provider.cmake",
+=======
+	"BUILD_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject",
+	"CMAKE_EXECUTABLE" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
+	"CMAKE_LIST_FILES" : 
+	[
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/CMakeLists.txt",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystem.cmake.in",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeNinjaFindMake.cmake",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/maintenance_tool_provider.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake",
@@ -66,7 +83,11 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in",
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake",
@@ -119,7 +140,11 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in",
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake",
@@ -134,7 +159,11 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineRCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCCompiler.cmake.in",
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestRCCompiler.cmake",
@@ -151,7 +180,11 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in",
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake",
@@ -172,7 +205,11 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in",
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake",
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake",
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake",
@@ -725,160 +762,267 @@
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in"
 	],
+<<<<<<< HEAD
 	"CMAKE_SOURCE_DIR" : "C:/Users/swsha/GraphicsFinalProject",
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/deps",
+=======
+	"CMAKE_SOURCE_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject",
+	"CROSS_CONFIG" : false,
+	"DEP_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/deps",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	"DEP_FILE_RULE_NAME" : "GEARUP_LETSFUCKIINGGOO_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/blocks/Block.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/blocks/Block.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"NSQCMISSKZ/moc_Block.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/mainwindow.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/mainwindow.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"UVLADIE3JM/moc_mainwindow.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/map/Chunk.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Chunk.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"GVBWGARL6Y/moc_Chunk.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/map/Map.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Map.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"GVBWGARL6Y/moc_Map.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/map/mapbuilder.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilder.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"GVBWGARL6Y/moc_mapbuilder.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/map/mapbuilderwidget.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilderwidget.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"GVBWGARL6Y/moc_mapbuilderwidget.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/map/mapproperties.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapproperties.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"GVBWGARL6Y/moc_mapproperties.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/realtime.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"UVLADIE3JM/moc_realtime.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/realtime/physics.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/physics.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"TXXDHOI7R2/moc_physics.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/realtime/rendering.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/rendering.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"TXXDHOI7R2/moc_rendering.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/settings.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/settings.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"UVLADIE3JM/moc_settings.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/shapes/Cone.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cone.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"2S5AI7NIVA/moc_Cone.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/shapes/Cube.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cube.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"2S5AI7NIVA/moc_Cube.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/shapes/Cylinder.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cylinder.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"2S5AI7NIVA/moc_Cylinder.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/shapes/Shape.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Shape.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"2S5AI7NIVA/moc_Shape.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/shapes/Sphere.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Sphere.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"2S5AI7NIVA/moc_Sphere.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/aspectratiowidget/aspectratiowidget.hpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/aspectratiowidget/aspectratiowidget.hpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"OWQMYEJWPR/moc_aspectratiowidget.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/camera.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/camera.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"VSCBVMNR7M/moc_camera.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/scenedata.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/scenedata.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"VSCBVMNR7M/moc_scenedata.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/scenefilereader.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/scenefilereader.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"VSCBVMNR7M/moc_scenefilereader.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/sceneparser.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/sceneparser.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"VSCBVMNR7M/moc_sceneparser.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/shaderloader.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/shaderloader.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"VSCBVMNR7M/moc_shaderloader.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/shapefactory.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/shapefactory.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"VSCBVMNR7M/moc_shapefactory.cpp",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/transforms.h",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/transforms.h",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			"VSCBVMNR7M/moc_transforms.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+<<<<<<< HEAD
 	"INCLUDE_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/include",
 	"MOC_COMPILATION_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/mocs_compilation.cpp",
+=======
+	"INCLUDE_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/mocs_compilation.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	"MOC_DEFINITIONS" : 
 	[
 		"GLEW_STATIC",
@@ -905,12 +1049,21 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug",
 		"C:/Users/swsha/GraphicsFinalProject",
 		"C:/Users/swsha/GraphicsFinalProject/src",
 		"C:/Users/swsha/GraphicsFinalProject/GEARUP_LETSFUCKIINGGOO",
 		"C:/Users/swsha/GraphicsFinalProject/PRIVATE",
 		"C:/Users/swsha/GraphicsFinalProject/glew/include",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/GEARUP_LETSFUCKIINGGOO",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/PRIVATE",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glew/include",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/6.9.2/mingw_64/include/QtCore",
 		"C:/Qt/6.9.2/mingw_64/include",
 		"C:/Qt/6.9.2/mingw_64/mkspecs/win32-g++",
@@ -946,6 +1099,7 @@
 		"-c",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp"
 	],
+<<<<<<< HEAD
 	"MOC_PREDEFS_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
@@ -955,10 +1109,22 @@
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
 	"PARSE_CACHE_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/GEARUP_LETSFUCKIINGGOO_autogen.dir/ParseCache.txt",
+=======
+	"MOC_PREDEFS_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/GEARUP_LETSFUCKIINGGOO_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qt/rcc/qrc_Resources.cpp"
+	],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 16,
+	"PARSE_CACHE_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/GEARUP_LETSFUCKIINGGOO_autogen.dir/ParseCache.txt",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.9.2/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.9.2/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 9,
+<<<<<<< HEAD
 	"SETTINGS_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/GEARUP_LETSFUCKIINGGOO_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
@@ -973,15 +1139,27 @@
 		[ "C:/Users/swsha/GraphicsFinalProject/src/map/Map.cpp", "MU", null ],
 		[
 			"C:/Users/swsha/GraphicsFinalProject/src/map/mapbuilder.cpp",
+=======
+	"SETTINGS_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/GEARUP_LETSFUCKIINGGOO_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/blocks/Block.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/map/mapbuilderwidget.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/main.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/map/mapproperties.cpp",
 			"MU",
 			null
@@ -989,10 +1167,14 @@
 		[ "C:/Users/swsha/GraphicsFinalProject/src/realtime.cpp", "MU", null ],
 		[
 			"C:/Users/swsha/GraphicsFinalProject/src/realtime/physics.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/mainwindow.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/realtime/rendering.cpp",
 			"MU",
 			null
@@ -1002,31 +1184,109 @@
 		[ "C:/Users/swsha/GraphicsFinalProject/src/shapes/Cube.cpp", "MU", null ],
 		[
 			"C:/Users/swsha/GraphicsFinalProject/src/shapes/Cylinder.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Chunk.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/shapes/Sphere.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/Map.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/camera.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilder.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/scenefilereader.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapbuilderwidget.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/sceneparser.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/map/mapproperties.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		],
 		[
+<<<<<<< HEAD
 			"C:/Users/swsha/GraphicsFinalProject/src/utils/shapefactory.cpp",
+=======
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/physics.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/realtime/rendering.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/settings.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cone.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cube.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Cylinder.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/shapes/Sphere.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/camera.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/scenefilereader.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/sceneparser.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/shapefactory.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 			"MU",
 			null
 		]
@@ -1035,7 +1295,11 @@
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qt/rcc/qrc_Resources.cpp"
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qt/rcc/qrc_Resources.cpp"
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	],
 	"UIC_UI_FILES" : [],
 	"USE_BETTER_GRAPH" : true,

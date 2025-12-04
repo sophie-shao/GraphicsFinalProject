@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/swsha/GraphicsFinalProject/glm
+=======
+# Install script for directory: C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glm
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

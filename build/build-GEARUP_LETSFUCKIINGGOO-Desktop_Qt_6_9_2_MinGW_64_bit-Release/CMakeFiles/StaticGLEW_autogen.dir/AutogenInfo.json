@@ -1,5 +1,6 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
+<<<<<<< HEAD
 	"BUILD_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen",
 	"CMAKE_BINARY_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release",
@@ -120,6 +121,23 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in",
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
+=======
+	"BUILD_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject",
+	"CMAKE_EXECUTABLE" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
+	"CMAKE_LIST_FILES" : 
+	[
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/CMakeLists.txt",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qtc/package-manager/auto-setup.cmake",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeSystem.cmake",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qtc/package-manager/maintenance_tool_provider.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake",
@@ -132,6 +150,7 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake",
+<<<<<<< HEAD
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineRCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCCompiler.cmake.in",
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
@@ -153,12 +172,20 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in",
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake",
+<<<<<<< HEAD
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCompilerCommon.cmake",
@@ -174,6 +201,10 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in",
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/3.30.5/CMakeCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake",
+=======
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake",
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake",
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
@@ -725,6 +756,7 @@
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
 		"C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in"
 	],
+<<<<<<< HEAD
 	"CMAKE_SOURCE_DIR" : "C:/Users/swsha/GraphicsFinalProject",
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/deps",
@@ -741,6 +773,16 @@
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/include",
 	"MOC_COMPILATION_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/mocs_compilation.cpp",
+=======
+	"CMAKE_SOURCE_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject",
+	"CROSS_CONFIG" : false,
+	"DEP_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "StaticGLEW_autogen/timestamp",
+	"HEADERS" : [],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/mocs_compilation.cpp",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	"MOC_DEFINITIONS" : [ "GLEW_STATIC" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -751,12 +793,21 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release",
 		"C:/Users/swsha/GraphicsFinalProject",
 		"C:/Users/swsha/GraphicsFinalProject/src",
 		"C:/Users/swsha/GraphicsFinalProject/GEARUP_LETSFUCKIINGGOO",
 		"C:/Users/swsha/GraphicsFinalProject/PRIVATE",
 		"C:/Users/swsha/GraphicsFinalProject/glew/include",
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/GEARUP_LETSFUCKIINGGOO",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/PRIVATE",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glew/include",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
 		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
 		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
@@ -784,6 +835,7 @@
 		"-c",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp"
 	],
+<<<<<<< HEAD
 	"MOC_PREDEFS_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
@@ -794,21 +846,49 @@
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
 	"PARSE_CACHE_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/StaticGLEW_autogen.dir/ParseCache.txt",
+=======
+	"MOC_PREDEFS_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/StaticGLEW_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qt/rcc/qrc_Resources.cpp",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/mocs_compilation.cpp"
+	],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 16,
+	"PARSE_CACHE_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/StaticGLEW_autogen.dir/ParseCache.txt",
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.9.2/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.9.2/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 9,
+<<<<<<< HEAD
 	"SETTINGS_FILE" : "C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/StaticGLEW_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[ "C:/Users/swsha/GraphicsFinalProject/glew/src/glew.c", "MU", null ]
+=======
+	"SETTINGS_FILE" : "C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/CMakeFiles/StaticGLEW_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/glew/src/glew.c",
+			"MU",
+			null
+		]
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
+<<<<<<< HEAD
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qt/rcc/qrc_Resources.cpp",
 		"C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/mocs_compilation.cpp"
+=======
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/.qt/rcc/qrc_Resources.cpp",
+		"C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/mocs_compilation.cpp"
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 	],
 	"UIC_UI_FILES" : [],
 	"USE_BETTER_GRAPH" : true,

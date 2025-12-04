@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/OWQMYEJWPR/moc_aspectratiowidget.cpp: C:/Users/swsha/GraphicsFinalProject/src/utils/aspectratiowidget/aspectratiowidget.hpp \
   C:/Users/swsha/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/moc_predefs.h \
+=======
+C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/OWQMYEJWPR/moc_aspectratiowidget.cpp: C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/src/utils/aspectratiowidget/aspectratiowidget.hpp \
+  C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/build/build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release/GEARUP_LETSFUCKIINGGOO_autogen/moc_predefs.h \
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
   C:/Qt/6.9.2/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q20iterator.h \

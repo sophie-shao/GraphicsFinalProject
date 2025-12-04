@@ -1,11 +1,20 @@
 <RCC>
   <qresource prefix="/">
+<<<<<<< HEAD
     <file alias="resources/shaders/default.frag">C:/Users/swsha/GraphicsFinalProject/resources/shaders/default.frag</file>
     <file alias="resources/shaders/default.vert">C:/Users/swsha/GraphicsFinalProject/resources/shaders/default.vert</file>
     <file alias="resources/shaders/debug.frag">C:/Users/swsha/GraphicsFinalProject/resources/shaders/debug.frag</file>
     <file alias="resources/shaders/debug.vert">C:/Users/swsha/GraphicsFinalProject/resources/shaders/debug.vert</file>
     <file alias="resources/shaders/phong.frag">C:/Users/swsha/GraphicsFinalProject/resources/shaders/phong.frag</file>
     <file alias="resources/shaders/phong.vert">C:/Users/swsha/GraphicsFinalProject/resources/shaders/phong.vert</file>
+=======
+    <file alias="resources/shaders/default.frag">C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/resources/shaders/default.frag</file>
+    <file alias="resources/shaders/default.vert">C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/resources/shaders/default.vert</file>
+    <file alias="resources/shaders/debug.frag">C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/resources/shaders/debug.frag</file>
+    <file alias="resources/shaders/debug.vert">C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/resources/shaders/debug.vert</file>
+    <file alias="resources/shaders/phong.frag">C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/resources/shaders/phong.frag</file>
+    <file alias="resources/shaders/phong.vert">C:/Users/johni/OneDrive/Desktop/CSCI1230/GraphicsFinalProject/resources/shaders/phong.vert</file>
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
   </qresource>
 </RCC>
 

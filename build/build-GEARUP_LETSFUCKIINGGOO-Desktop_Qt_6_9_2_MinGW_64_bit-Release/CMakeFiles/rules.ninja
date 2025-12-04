@@ -25,7 +25,11 @@ rule CXX_COMPILER__GEARUP_LETSFUCKIINGGOO_unscanned_Release
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__GEARUP_LETSFUCKIINGGOO_Release
+<<<<<<< HEAD
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Qt\Tools\mingw1310_64\bin\g++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+=======
+  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\Qt\Tools\mingw1310_64\bin\g++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -54,7 +58,11 @@ rule CXX_COMPILER__StaticGLEW_unscanned_Release
 # Rule for linking CXX static library.
 
 rule CXX_STATIC_LIBRARY_LINKER__StaticGLEW_Release
+<<<<<<< HEAD
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Qt\Tools\mingw1310_64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Qt\Tools\mingw1310_64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+=======
+  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f $TARGET_FILE && C:\Qt\Tools\mingw1310_64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Qt\Tools\mingw1310_64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -71,7 +79,11 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
+<<<<<<< HEAD
   command = C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\Users\swsha\GraphicsFinalProject -BC:\Users\swsha\GraphicsFinalProject\build\build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release
+=======
+  command = C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\Users\johni\OneDrive\Desktop\CSCI1230\GraphicsFinalProject -BC:\Users\johni\OneDrive\Desktop\CSCI1230\GraphicsFinalProject\build\build-GEARUP_LETSFUCKIINGGOO-Desktop_Qt_6_9_2_MinGW_64_bit-Release
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
   description = Re-running CMake...
   generator = 1
 

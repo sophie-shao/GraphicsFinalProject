@@ -5,6 +5,10 @@
 #include "../shapes/Cylinder.h"
 #include "../shapes/Cone.h"
 #include <memory>
+<<<<<<< HEAD
+=======
+#include "utils/debug.h"
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 
 
 ShapeFactory::ShapeFactory() = default;
@@ -40,13 +44,20 @@ void ShapeFactory::initShapes(int param1, int param2) {
     m_param1 = param1;
     m_param2 = param2;
 
+<<<<<<< HEAD
     Cube cube;
     Sphere sphere;
     Cylinder cylinder;
     Cone cone;
+=======
+    // glErrorCheck();
+
+>>>>>>> 653ba43c507f9c8cdf4979ee69a10a85813c86b4
 
     m_shapeMap[PrimitiveType::PRIMITIVE_CUBE] =
         createShapeData(cube, param1, param2);
+
+    glErrorCheck();
 
     m_shapeMap[PrimitiveType::PRIMITIVE_SPHERE] =
         createShapeData(sphere, param1, param2);

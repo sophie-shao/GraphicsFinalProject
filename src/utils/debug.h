@@ -1,6 +1,8 @@
 #pragma once
 #include <GL/glew.h>
 #include <iostream>
+#include <string>
+
 
 namespace Debug {
 inline void glErrorCheck(const char* file, int line) {
