@@ -1,0 +1,4 @@
+set(__QT_DEPLOY_TARGET_GEARUP_LETSFUCKIINGGOO_FILE /Users/rossgoldbaum/Desktop/cs123/project-6-final-project-gear-up-RoboticRoss/build/build-GEARUP_LETSFUCKIINGGOO-Qt_6_9_2_for_macOS-Debug/GEARUP_LETSFUCKIINGGOO)
+set(__QT_DEPLOY_TARGET_GEARUP_LETSFUCKIINGGOO_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_StaticGLEW_FILE /Users/rossgoldbaum/Desktop/cs123/project-6-final-project-gear-up-RoboticRoss/build/build-GEARUP_LETSFUCKIINGGOO-Qt_6_9_2_for_macOS-Debug/libStaticGLEW.a)
+set(__QT_DEPLOY_TARGET_StaticGLEW_TYPE STATIC_LIBRARY)
