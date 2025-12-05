@@ -29,14 +29,14 @@ Realtime::Realtime(QWidget *parent)
     m_keyMap[Qt::Key_Control] = false;
     m_keyMap[Qt::Key_Space]   = false;
     m_keyMap[Qt::Key_Shift]   = false;
-    
+
     m_activeMap = nullptr;
-    
+
     m_globalData.ka = 0.5f;
     m_globalData.kd = 0.5f;
     m_globalData.ks = 0.5f;
     m_globalData.kt = 0.0f;
-    
+
     m_flyingMode = true;
     m_velocity = glm::vec3(0.0f);
     m_onGround = false;
@@ -128,7 +128,7 @@ void Realtime::paintGL() {
     glUniformMatrix4fv(m_projLoc, 1, GL_FALSE, &proj[0][0]);
     glUniformMatrix4fv(m_viewLoc, 1, GL_FALSE, &view[0][0]);
     glUniform3fv(m_cameraPosLoc, 1, &camPos[0]);
-    
+
     glUniform1f(m_k_aLoc, m_globalData.ka);
     glUniform1f(m_k_dLoc, m_globalData.kd);
     glUniform1f(m_k_sLoc, m_globalData.ks);
@@ -148,7 +148,7 @@ void Realtime::paintGL() {
         glBindVertexArray(data.vao);
         glDrawArrays(GL_TRIANGLES, 0, data.numVertices);
     }
-    
+
     if (m_activeMap != nullptr) {
         Rendering::renderMapBlocks(this);
     }
@@ -220,7 +220,7 @@ void Realtime::settingsChanged() {
         float(width()) / float(height()),
         settings.nearPlane,
         settings.farPlane
-    );
+        );
     makeCurrent();
     m_shapeManager.updateParams(settings.shapeParameter1, settings.shapeParameter2);
     doneCurrent();
@@ -229,27 +229,27 @@ void Realtime::settingsChanged() {
 
 void Realtime::setActiveMap(Map* map) {
     m_activeMap = map;
-    
+
     if (m_activeMap != nullptr) {
         int mapWidth = m_activeMap->getWidth();
         int mapDepth = m_activeMap->getHeight();
         int maxHeight = m_activeMap->getMaxHeight();
-        
+
         if (mapWidth <= 0 || mapDepth <= 0) {
             return;
         }
-        
+
         int middleX = mapWidth / 2;
         int middleZ = mapDepth / 2;
-        
+
         int worldX = middleX - (mapWidth / 2);
         int worldZ = middleZ - (mapDepth / 2);
-        
+
         auto blocks = m_activeMap->getBlocksToRender();
         if (blocks.empty()) {
             return;
         }
-        
+
         int centerBlockY = 0;
         bool foundCenterBlock = false;
         for (const auto& block : blocks) {
@@ -262,14 +262,14 @@ void Realtime::setActiveMap(Map* map) {
                 break;
             }
         }
-        
+
         if (!foundCenterBlock && !blocks.empty()) {
             int x, y, z;
             BiomeType biome;
             std::tie(x, y, z, biome) = blocks[blocks.size() / 2];
             centerBlockY = y;
         }
-        
+
         const float EYE_HEIGHT = 1.6f;
         int maxDimension = std::max(mapWidth, mapDepth);
         int cameraOffset = std::max(5, maxDimension / 4);
@@ -277,15 +277,15 @@ void Realtime::setActiveMap(Map* map) {
             static_cast<float>(worldX + cameraOffset),
             static_cast<float>(centerBlockY + 1) + EYE_HEIGHT,
             static_cast<float>(worldZ + cameraOffset)
-        );
-        
+            );
+
         glm::vec3 lookTarget(
             static_cast<float>(worldX),
             static_cast<float>(centerBlockY),
             static_cast<float>(worldZ)
-        );
+            );
         glm::vec3 lookDir = glm::normalize(lookTarget - cameraPos);
-        
+
         m_camera.setPosition(cameraPos);
         m_camera.setLook(lookDir);
         m_camera.setUp(glm::vec3(0.0f, 1.0f, 0.0f));
@@ -294,12 +294,12 @@ void Realtime::setActiveMap(Map* map) {
             m_currentFOV = m_baseFOV;
         }
         m_camera.setFOV(m_currentFOV);
-        
+
         float aspect = static_cast<float>(width()) / static_cast<float>(height());
         if (aspect > 0) {
             m_camera.updateProjectionMatrix(aspect, settings.nearPlane, settings.farPlane);
         }
-        
+
         update();
     }
 }
@@ -344,22 +344,22 @@ void Realtime::timerEvent(QTimerEvent *event) {
     m_elapsedTimer.restart();
 
     float moveSpeed = 5.0f * deltaTime;
-    
+
     if (m_flyingMode) {
-    if (m_keyMap[Qt::Key_W]) m_camera.moveForward(moveSpeed);
-    if (m_keyMap[Qt::Key_S]) m_camera.moveForward(-moveSpeed);
-    if (m_keyMap[Qt::Key_A]) m_camera.moveRight(-moveSpeed);
-    if (m_keyMap[Qt::Key_D]) m_camera.moveRight(moveSpeed);
-    if (m_keyMap[Qt::Key_Space]) m_camera.moveUp(moveSpeed);
-    if (m_keyMap[Qt::Key_Control]) m_camera.moveUp(-moveSpeed);
+        if (m_keyMap[Qt::Key_W]) m_camera.moveForward(moveSpeed);
+        if (m_keyMap[Qt::Key_S]) m_camera.moveForward(-moveSpeed);
+        if (m_keyMap[Qt::Key_A]) m_camera.moveRight(-moveSpeed);
+        if (m_keyMap[Qt::Key_D]) m_camera.moveRight(moveSpeed);
+        if (m_keyMap[Qt::Key_Space]) m_camera.moveUp(moveSpeed);
+        if (m_keyMap[Qt::Key_Control]) m_camera.moveUp(-moveSpeed);
     } else {
         Physics::updatePhysics(this, deltaTime);
     }
 
-    bool isSprinting = m_keyMap[Qt::Key_Shift] && 
-                      (m_keyMap[Qt::Key_W] || m_keyMap[Qt::Key_S] || 
-                       m_keyMap[Qt::Key_A] || m_keyMap[Qt::Key_D]);
-    
+    bool isSprinting = m_keyMap[Qt::Key_Shift] &&
+                       (m_keyMap[Qt::Key_W] || m_keyMap[Qt::Key_S] ||
+                        m_keyMap[Qt::Key_A] || m_keyMap[Qt::Key_D]);
+
     float targetFOV = isSprinting ? m_baseFOV + 15.0f : m_baseFOV;
     float fovSpeed = 50.0f;
     if (m_currentFOV < targetFOV) {
@@ -367,7 +367,7 @@ void Realtime::timerEvent(QTimerEvent *event) {
     } else if (m_currentFOV > targetFOV) {
         m_currentFOV = std::max(targetFOV, m_currentFOV - fovSpeed * deltaTime);
     }
-    
+
     m_camera.setFOV(m_currentFOV);
     float aspect = static_cast<float>(width()) / static_cast<float>(height());
     if (aspect > 0) {
@@ -380,24 +380,24 @@ void Realtime::timerEvent(QTimerEvent *event) {
 
 void Realtime::updateTelemetry() {
     glm::vec3 cameraPos = m_camera.getPosition();
-    
+
     int chunkX = 0;
     int chunkZ = 0;
-    
+
     if (m_activeMap != nullptr) {
         try {
             int chunkSize = m_activeMap->getChunkSize();
             if (chunkSize > 0) {
                 int mapWidth = m_activeMap->getWidth();
                 int mapDepth = m_activeMap->getHeight();
-                
+
                 if (mapWidth > 0 && mapDepth > 0) {
                     int centerX = mapWidth / 2;
                     int centerZ = mapDepth / 2;
-                    
+
                     float cameraChunkX = (cameraPos.x + static_cast<float>(centerX)) / static_cast<float>(chunkSize);
                     float cameraChunkZ = (cameraPos.z + static_cast<float>(centerZ)) / static_cast<float>(chunkSize);
-                    
+
                     if (std::isfinite(cameraChunkX) && std::isfinite(cameraChunkZ)) {
                         chunkX = static_cast<int>(std::floor(cameraChunkX));
                         chunkZ = static_cast<int>(std::floor(cameraChunkZ));
@@ -409,7 +409,7 @@ void Realtime::updateTelemetry() {
             chunkZ = 0;
         }
     }
-    
+
     emit telemetryUpdate(cameraPos.x, cameraPos.y, cameraPos.z, chunkX, chunkZ);
 }
 
