@@ -43,6 +43,7 @@ void ShapeFactory::initShapes(int param1, int param2) {
 
     // glErrorCheck();
 
+    //reverted?
 
     m_shapeMap[PrimitiveType::PRIMITIVE_CUBE] =
         createShapeData(*std::make_unique<Cube>(), param1, param2);
