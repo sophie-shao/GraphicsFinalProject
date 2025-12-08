@@ -1,6 +1,5 @@
 #pragma once
 
-// Defined before including GLEW to suppress deprecation messages on macOS
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION
 #endif
@@ -58,6 +57,9 @@ private:
     void timerEvent(QTimerEvent *event) override;
 
     void addLightsToShader(const std::vector<SceneLightData> &lights);
+    void addLightsToBlockShader(const std::vector<SceneLightData> &lights);
+    void loadTexture(GLuint& textureID, const std::string& filepath);
+    void createDefaultTexture(GLuint& textureID);
 
     int m_timer;
     QElapsedTimer m_elapsedTimer;
@@ -95,9 +97,7 @@ private:
     friend class Physics;
     friend class Rendering;
 
-    GLuint m_shader;
-    GLuint m_vbo;
-    GLuint m_vao;
+    // Phong shader for regular shapes
     GLuint m_shaderProgram;
     GLint m_projLoc;
     GLint m_modelLoc;
@@ -113,4 +113,26 @@ private:
     GLint m_k_sLoc;
     GLint m_shininessLoc;
 
+    // Block shader for bump mapping
+    GLuint m_blockShaderProgram;
+    GLint m_blockModelLoc;
+    GLint m_blockProjLoc;
+    GLint m_blockViewLoc;
+    GLint m_blockCameraPosLoc;
+    GLint m_blockNumLightsLoc;
+
+    // Block VAO/VBO
+    GLuint m_blockVAO = 0;
+    GLuint m_blockVBO = 0;
+    int m_blockVertexCount = 0;
+
+    // Textures
+    GLuint m_colorTexture;
+    GLuint m_normalMapTexture;
+    GLuint m_bumpMapTexture;
+
+    // Bump mapping flags
+    bool m_useNormalMapping = false;
+    bool m_useBumpMapping = false;
+    float m_bumpStrength = 10.0f;
 };

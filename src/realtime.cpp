@@ -79,17 +79,27 @@ void Realtime::initializeGL() {
 
     glErrorCheck();
 
-
-    //error check this bad boy
+    // Create regular phong shader
     try {
         m_shaderProgram = ShaderLoader::createShaderProgram(
             ":/resources/shaders/phong.vert",
             ":/resources/shaders/phong.frag"
             );
     } catch (const std::runtime_error &e) {
-        std::cerr << "Shader compile/link error: " << e.what() << std::endl;
+        std::cerr << "Phong shader error: " << e.what() << std::endl;
     }
 
+    // Create block shader with normal/bump mapping support
+    try {
+        m_blockShaderProgram = ShaderLoader::createShaderProgram(
+            ":/resources/shaders/default.vert",
+            ":/resources/shaders/default.frag"
+            );
+    } catch (const std::runtime_error &e) {
+        std::cerr << "Block shader error: " << e.what() << std::endl;
+    }
+
+    // Get uniform locations for phong shader
     m_modelLoc = glGetUniformLocation(m_shaderProgram, "modelMatrix");
     m_projLoc = glGetUniformLocation(m_shaderProgram, "projMatrix");
     m_viewLoc = glGetUniformLocation(m_shaderProgram, "viewMatrix");
@@ -106,9 +116,60 @@ void Realtime::initializeGL() {
     m_k_sLoc = glGetUniformLocation(m_shaderProgram, "k_s");
     m_shininessLoc = glGetUniformLocation(m_shaderProgram, "shininess");
 
-    // makeCurrent();
+    // Get uniform locations for block shader
+    m_blockModelLoc = glGetUniformLocation(m_blockShaderProgram, "modelMatrix");
+    m_blockProjLoc = glGetUniformLocation(m_blockShaderProgram, "projMatrix");
+    m_blockViewLoc = glGetUniformLocation(m_blockShaderProgram, "viewMatrix");
+    m_blockCameraPosLoc = glGetUniformLocation(m_blockShaderProgram, "cameraPos");
+    m_blockNumLightsLoc = glGetUniformLocation(m_blockShaderProgram, "numLights");
+
+    // Load textures for normal and bump mapping
+    // Normal map texture
+    glGenTextures(1, &m_normalMapTexture);
+    glBindTexture(GL_TEXTURE_2D, m_normalMapTexture);
+
+    // Load your normal map image here - adjust path as needed
+    QImage normalMapImage("scenefiles/maps/dirt.png");
+    if (normalMapImage.isNull()) {
+        std::cerr << "Failed to load normal map, creating default" << std::endl;
+        // Create a flat normal map (pointing straight up in tangent space)
+        unsigned char flatNormal[] = {128, 128, 255, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatNormal);
+    } else {
+        normalMapImage = normalMapImage.convertToFormat(QImage::Format_RGBA8888);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, normalMapImage.width(), normalMapImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, normalMapImage.bits());
+    }
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    // Bump map texture (height map)
+    glGenTextures(1, &m_bumpMapTexture);
+    glBindTexture(GL_TEXTURE_2D, m_bumpMapTexture);
+
+    QImage bumpImage("scenefiles/maps/wood_bump.png");
+    if (bumpImage.isNull()) {
+        std::cerr << "Failed to load bump map, creating default" << std::endl;
+        // Create a flat bump map
+        unsigned char flatBump[] = {128, 128, 128, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatBump);
+    } else {
+        bumpImage = bumpImage.convertToFormat(QImage::Format_RGBA8888);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bumpImage.width(), bumpImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, bumpImage.bits());
+    }
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
     m_shapeManager.initShapes(settings.shapeParameter1, settings.shapeParameter2);
-    // doneCurrent();
     glErrorCheck();
 }
 
@@ -184,6 +245,36 @@ void Realtime::sceneChanged() {
     m_camera = Camera(metaData.cameraData, aspectRatio, settings.nearPlane, settings.farPlane);
     glUseProgram(0);
     update();
+}
+
+void Realtime::addLightsToBlockShader(const std::vector<SceneLightData> &lights) {
+    glUseProgram(m_blockShaderProgram);
+    int numLights = std::min((int)lights.size(), 8);
+    glUniform1i(m_blockNumLightsLoc, numLights);
+
+    // Set k values
+    glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_a"), m_globalData.ka);
+    glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_d"), m_globalData.kd);
+    glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_s"), m_globalData.ks);
+
+    for (int i = 0; i < numLights; i++) {
+        const SceneLightData &L = lights[i];
+        std::string base = "lights[" + std::to_string(i) + "]";
+
+        int lightType;
+        if (L.type == LightType::LIGHT_DIRECTIONAL) lightType = 0;
+        else if (L.type == LightType::LIGHT_POINT) lightType = 1;
+        else lightType = 2;
+
+        glUniform1i(glGetUniformLocation(m_blockShaderProgram, (base + ".type").c_str()), lightType);
+        glUniform3fv(glGetUniformLocation(m_blockShaderProgram, (base + ".color").c_str()), 1, &L.color[0]);
+        glUniform3fv(glGetUniformLocation(m_blockShaderProgram, (base + ".function").c_str()), 1, &L.function[0]);
+        glUniform1f(glGetUniformLocation(m_blockShaderProgram, (base + ".angle").c_str()), L.angle);
+        glUniform1f(glGetUniformLocation(m_blockShaderProgram, (base + ".penumbra").c_str()), L.penumbra);
+
+        glUniform3fv(glGetUniformLocation(m_blockShaderProgram, (base + ".position").c_str()), 1, &L.pos[0]);
+        glUniform3fv(glGetUniformLocation(m_blockShaderProgram, (base + ".direction").c_str()), 1, &L.dir[0]);
+    }
 }
 
 void Realtime::addLightsToShader(const std::vector<SceneLightData> &lights) {
@@ -307,6 +398,32 @@ void Realtime::setActiveMap(Map* map) {
 
 void Realtime::keyPressEvent(QKeyEvent *event) {
     m_keyMap[Qt::Key(event->key())] = true;
+
+    // Toggle normal mapping with 'N' key
+    if (event->key() == Qt::Key_N) {
+        m_useNormalMapping = !m_useNormalMapping;
+        std::cout << "Normal mapping: " << (m_useNormalMapping ? "ON" : "OFF") << std::endl;
+        update();
+    }
+
+    // Toggle bump mapping with 'B' key
+    if (event->key() == Qt::Key_B) {
+        m_useBumpMapping = !m_useBumpMapping;
+        std::cout << "Bump mapping: " << (m_useBumpMapping ? "ON" : "OFF") << std::endl;
+        update();
+    }
+
+    // Adjust bump strength with +/- keys
+    if (event->key() == Qt::Key_Plus || event->key() == Qt::Key_Equal) {
+        m_bumpStrength += 2.0f;
+        std::cout << "Bump strength: " << m_bumpStrength << std::endl;
+        update();
+    }
+    if (event->key() == Qt::Key_Minus) {
+        m_bumpStrength = std::max(0.0f, m_bumpStrength - 2.0f);
+        std::cout << "Bump strength: " << m_bumpStrength << std::endl;
+        update();
+    }
 }
 
 void Realtime::keyReleaseEvent(QKeyEvent *event) {

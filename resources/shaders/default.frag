@@ -1,48 +1,46 @@
 #version 330 core
 
-in vec3 fragNormal;
-in vec3 fragPosition;
+struct Light {
+    int type; // 0=directional, 1=point, 2=spot
+    vec3 position;
+    vec3 direction;
+    vec3 color;
+    vec3 function;
+    float angle;
+    float penumbra;
+};
+
+struct Material {
+    vec4 cAmbient;
+    vec4 cDiffuse;
+    vec4 cSpecular;
+    float shininess;
+};
+
+in vec3 worldPos;
+in vec3 worldNormal;
 in vec2 fragUV;
 in mat3 TBN;
 
-out vec4 fragColor;
+out vec4 color;
 
-uniform vec4 materialAmbient;
-uniform vec4 materialDiffuse;
-uniform vec4 materialSpecular;
-uniform float materialShininess;
-
-uniform float ka;
-uniform float kd;
-uniform float ks;
-
+uniform int numLights;
+uniform Light lights[8];
 uniform vec3 cameraPos;
+uniform Material material;
 
-// texture
-uniform sampler2D colorTexture;
-uniform bool useColorTexture;
+uniform float k_a;
+uniform float k_d;
+uniform float k_s;
+
+// Normal and Bump mapping textures
 uniform sampler2D normalMap;
 uniform bool useNormalMap;
 uniform sampler2D bumpMap;
 uniform bool useBumpMap;
 uniform float bumpStrength;
 
-struct Light {
-    int type;
-    vec4 color;
-    vec3 function;
-    vec4 pos;
-    vec4 dir;
-    float penumbra;
-    float angle;
-};
-
-uniform Light lights[8];
-uniform int numLights;
-
-
 vec3 computeBumpNormal(sampler2D heightMap, vec2 uv, float strength) {
-
     vec2 texSize = textureSize(heightMap, 0);
     vec2 texelSize = 1.0 / texSize;
 
@@ -53,115 +51,95 @@ vec3 computeBumpNormal(sampler2D heightMap, vec2 uv, float strength) {
     float dh_dx = (h_right - h_center) * strength;
     float dh_dy = (h_top - h_center) * strength;
 
-    vec3 normal = normalize(vec3(-dh_dx, -dh_dy, 1.0));
-
-    return normal;
+    return normalize(vec3(-dh_dx, -dh_dy, 1.0));
 }
 
-vec3 calculateLighting(Light light, vec3 position, vec3 normal, vec3 viewDir, vec3 materialDiff) {
-    vec3 lightDir;
+vec3 computeLightContribution(vec3 N, vec3 V, vec3 worldPos, Light light) {
+    vec3 L;
     float attenuation = 1.0;
 
     if (light.type == 0) {
+        // Directional light
+        L = normalize(-light.direction);
+    } else {
+        // Point or Spot light
+        vec3 toLight = light.position - worldPos;
+        float dist = length(toLight);
+        L = normalize(toLight);
 
-        lightDir = normalize(-vec3(light.dir));
-    } else if (light.type == 1 || light.type == 2) {
+        float c = light.function.x;
+        float lin = light.function.y;
+        float q = light.function.z;
 
-        vec3 lightToPos = vec3(light.pos) - position;
-        float distance = length(lightToPos);
-        lightDir = normalize(lightToPos);
-
-        float a = light.function.x;
-        float b = light.function.y;
-        float c = light.function.z;
-        attenuation = min(1.0, 1.0 / (a + b * distance + c * distance * distance));
+        float denom = c + lin * dist + q * dist * dist;
+        if (abs(denom) > 1.0)
+            attenuation = 1.0 / denom;
 
         if (light.type == 2) {
+            // Spot light
+            float theta = acos(dot(normalize(-light.direction), normalize(L)));
+            float inner = light.angle - light.penumbra;
+            float outer = light.angle;
+            float intensity = 0.0;
 
-            vec3 spotDir = normalize(vec3(light.dir));
-            float cosX = dot(-lightDir, spotDir);
-            float x = acos(clamp(cosX, -1.0, 1.0));
-
-            float outerAngle = light.angle;
-            float innerAngle = outerAngle - light.penumbra;
-
-            if (x > outerAngle) {
-                return vec3(0.0);
-            }
-
-            float intensity = 1.0;
-            if (x > innerAngle) {
-                float t = (x - innerAngle) / (outerAngle - innerAngle);
-                float falloff = -2.0 * t * t * t + 3.0 * t * t;
+            if (theta < inner) {
+                intensity = 1.0;
+            } else if (theta > outer) {
+                intensity = 0.0;
+            } else {
+                float ratio = (theta - inner) / (outer - inner);
+                float falloff = -2.0 * pow(ratio, 3.0) + 3.0 * pow(ratio, 2.0);
                 intensity = 1.0 - falloff;
             }
-
-            attenuation *= intensity;
+            attenuation *= clamp(intensity, 0.0, 1.0);
         }
     }
 
-    // diffuse
-    float diff = max(dot(normal, lightDir), 0.0);
-    vec3 diffuseComponent = kd * diff * materialDiff * vec3(light.color);
+    float NdotL = max(dot(N, L), 0.0);
+    if (NdotL <= 0.0) return vec3(0.0);
 
-    // specular
-    vec3 directionFromLight = -lightDir;
-    vec3 reflectDir = normalize(directionFromLight - 2.0 * dot(normal, directionFromLight) * normal);
-    float spec = pow(max(dot(reflectDir, viewDir), 0.0), materialShininess);
+    vec3 R = reflect(-L, N);
+    float RdotV = max(dot(R, V), 0.0);
+    float spec = max(pow(RdotV, material.shininess), 0.0);
 
-    vec3 specularComponent = ks * spec * vec3(materialSpecular) * vec3(light.color);
+    vec3 diffuse = material.cDiffuse.rgb * k_d * NdotL * light.color;
+    vec3 specular = material.cSpecular.rgb * k_s * spec * light.color;
 
-    return attenuation * (diffuseComponent + specularComponent);
+    return attenuation * (diffuse + specular);
 }
 
 void main() {
-
-    vec2 tiledUV = fragUV * vec2(2.0, 1.0);
-
-    vec3 baseColor;
-    if (useColorTexture) {
-        baseColor = texture(colorTexture, tiledUV).rgb;
-    } else {
-        baseColor = vec3(materialDiffuse);
-    }
-
-    vec3 normal;
+    // Compute normal based on mapping techniques
+    vec3 N;
 
     if (useBumpMap && useNormalMap) {
-
-        vec3 bumpNormal = computeBumpNormal(bumpMap, tiledUV, bumpStrength);
-
-        vec3 normalMapNormal = texture(normalMap, tiledUV).rgb * 2.0 - 1.0;
-
+        // Hybrid mode: combine bump and normal mapping
+        vec3 bumpNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
+        vec3 normalMapNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
         vec3 combinedNormal = normalize(bumpNormal * 0.5 + normalMapNormal * 0.5);
-
-        normal = normalize(TBN * combinedNormal);
-
+        N = normalize(TBN * combinedNormal);
     } else if (useBumpMap) {
-
-        vec3 tangentSpaceNormal = computeBumpNormal(bumpMap, tiledUV, bumpStrength);
-
-        normal = normalize(TBN * tangentSpaceNormal);
+        // Bump mapping only
+        vec3 tangentSpaceNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
+        N = normalize(TBN * tangentSpaceNormal);
     } else if (useNormalMap) {
-
-        vec3 tangentSpaceNormal = texture(normalMap, tiledUV).rgb;
-
-        tangentSpaceNormal = tangentSpaceNormal * 2.0 - 1.0;
-
-        normal = normalize(TBN * tangentSpaceNormal);
+        // Normal mapping only
+        vec3 tangentSpaceNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
+        N = normalize(TBN * tangentSpaceNormal);
     } else {
-        normal = normalize(fragNormal);
+        // No mapping - use interpolated normal
+        N = normalize(worldNormal);
     }
 
-    vec3 viewDir = normalize(cameraPos - fragPosition);
+    vec3 V = normalize(cameraPos - worldPos);
 
-    vec3 ambientComponent = ka * vec3(materialAmbient) * baseColor;
-    vec3 totalLighting = ambientComponent;
+    // Ambient component
+    vec3 total = material.cAmbient.rgb * k_a;
 
-    for (int i = 0; i < numLights && i < 8; i++) {
-        totalLighting += calculateLighting(lights[i], fragPosition, normal, viewDir, baseColor);
+    // Add contribution from each light
+    for (int i = 0; i < numLights; ++i) {
+        total += computeLightContribution(N, V, worldPos, lights[i]);
     }
 
-    totalLighting = clamp(totalLighting, 0.0, 1.0);
-    fragColor = vec4(totalLighting, 1.0);
+    color = vec4(total, 1.0);
 }
