@@ -113,4 +113,10 @@ private:
     GLint m_k_sLoc;
     GLint m_shininessLoc;
 
+    GLuint m_blockShaderProgram;
+    GLint m_blockModelLoc;
+    GLint m_blockProjLoc;
+    GLint m_blockViewLoc;
+    GLint m_blockCameraPosLoc;
+
 };

@@ -72,6 +72,8 @@ add_executable(${PROJECT_NAME}
     src/map/Chunk.h
     src/map/mapproperties.cpp
     src/map/mapproperties.h
+    resources/shaders/block.frag
+    resources/shaders/block.vert
 )
 
 # GLM: this creates its library and allows you to `#include "glm/..."`
