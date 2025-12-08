@@ -8,7 +8,8 @@ struct SceneLightData;
 
 class Rendering {
 public:
+    static void setupMapLights(Realtime* realtime, const glm::vec3& camPos, std::vector<SceneLightData>& lights);
     static void renderMapBlocks(Realtime* realtime);
-    static void setupMapLights(Realtime* realtime, const glm::vec3& cameraPos, std::vector<SceneLightData>& lights);
+    static void renderMapBlocksWithBumpMapping(Realtime* realtime);
+    static void addLightsToBlockShader(Realtime* realtime, const std::vector<SceneLightData>& lights);
 };
-

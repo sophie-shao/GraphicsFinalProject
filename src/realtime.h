@@ -1,6 +1,5 @@
 #pragma once
 
-// Defined before including GLEW to suppress deprecation messages on macOS
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION
 #endif
@@ -31,7 +30,7 @@ public:
     void sceneChanged();
     void settingsChanged();
     void saveViewportImage(std::string filePath);
-    
+
     void setActiveMap(Map* map);
     void setFlyingMode(bool flying);
     void setMovementSpeedMultiplier(double multiplier);
@@ -58,6 +57,8 @@ private:
     void timerEvent(QTimerEvent *event) override;
 
     void addLightsToShader(const std::vector<SceneLightData> &lights);
+    void loadTexture(GLuint& textureID, const std::string& filepath);
+    void createDefaultTexture(GLuint& textureID);
 
     int m_timer;
     QElapsedTimer m_elapsedTimer;
@@ -73,12 +74,12 @@ private:
     std::vector<SceneLightData> m_lights;
     SceneGlobalData m_globalData;
     Camera m_camera;
-    
+
     Map* m_activeMap;
     void renderMapBlocks();
-    
+
     void updateTelemetry();
-    
+
     glm::vec3 m_playerLightColor;
     bool m_flyingMode;
     glm::vec3 m_velocity;
@@ -91,13 +92,11 @@ private:
     float m_baseFOV;
     float m_currentFOV;
     void updatePhysics(float deltaTime);
-    
+
     friend class Physics;
     friend class Rendering;
 
-    GLuint m_shader;
-    GLuint m_vbo;
-    GLuint m_vao;
+    // Phong shader for regular shapes
     GLuint m_shaderProgram;
     GLint m_projLoc;
     GLint m_modelLoc;
@@ -113,10 +112,20 @@ private:
     GLint m_k_sLoc;
     GLint m_shininessLoc;
 
+    // Block shader for bump mapping
     GLuint m_blockShaderProgram;
     GLint m_blockModelLoc;
     GLint m_blockProjLoc;
     GLint m_blockViewLoc;
     GLint m_blockCameraPosLoc;
 
+    // Textures
+    GLuint m_colorTexture;
+    GLuint m_normalMapTexture;
+    GLuint m_bumpMapTexture;
+
+    // Bump mapping flags
+    bool m_useNormalMapping;
+    bool m_useBumpMapping;
+    float m_bumpStrength;
 };
