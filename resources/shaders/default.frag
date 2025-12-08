@@ -15,7 +15,6 @@ uniform bool useNormalMap;
 uniform bool useBumpMap;
 uniform float bumpStrength;
 
-// Light uniforms (simplified - adapt as needed)
 uniform vec3 lightColor;
 uniform vec3 lightPos;
 uniform float ka;
@@ -41,22 +40,9 @@ void main() {
     vec3 baseColor = texture(colorTexture, fragUV).rgb;
 
     vec3 normal;
-    if (useBumpMap && useNormalMap) {
-        vec3 bumpNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
-        vec3 normalMapNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
-        vec3 combinedNormal = normalize(bumpNormal * 0.5 + normalMapNormal * 0.5);
-        normal = normalize(TBN * combinedNormal);
-    } else if (useBumpMap) {
-        vec3 tangentSpaceNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
-        normal = normalize(TBN * tangentSpaceNormal);
-    } else if (useNormalMap) {
-        vec3 tangentSpaceNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
-        normal = normalize(TBN * tangentSpaceNormal);
-    } else {
-        normal = normalize(fragNormal);
-    }
+    vec3 tangentSpaceNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
+    normal = normalize(TBN * tangentSpaceNormal);
 
-    // Simple Phong lighting
     vec3 lightDir = normalize(lightPos - fragPosition);
     vec3 viewDir = normalize(cameraPos - fragPosition);
     vec3 reflectDir = reflect(-lightDir, normal);

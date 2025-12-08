@@ -13,6 +13,17 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Define resource directories
+set(RESOURCE_DIR "${CMAKE_SOURCE_DIR}/scenefiles")
+set(TEXTURE_DIR "${RESOURCE_DIR}/maps")
+
+# Check if resource directory exists
+if(NOT EXISTS ${RESOURCE_DIR})
+    message(WARNING "Resource directory 'scenefiles' not found at: ${RESOURCE_DIR}")
+else()
+    message(STATUS "Found resource directory: ${RESOURCE_DIR}")
+endif()
+
 # Specifies required Qt components
 find_package(Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt6 REQUIRED COMPONENTS Gui)
@@ -72,10 +83,6 @@ add_executable(${PROJECT_NAME}
     src/map/Chunk.h
     src/map/mapproperties.cpp
     src/map/mapproperties.h
-
-
-
-
 )
 
 # GLM: this creates its library and allows you to `#include "glm/..."`
@@ -125,4 +132,64 @@ endif()
 # Set this flag to silence warnings on MacOS
 if (APPLE)
   set(CMAKE_CXX_FLAGS "-Wno-deprecated-volatile")
+endif()
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory
+        "${CMAKE_BINARY_DIR}/scenefiles/maps"
+    COMMENT "Creating resource directories in build folder"
+)
+
+# Copy texture files from source to build directory
+file(GLOB_RECURSE TEXTURE_FILES
+    "${TEXTURE_DIR}/*.png"
+    "${TEXTURE_DIR}/*.jpg"
+    "${TEXTURE_DIR}/*.jpeg"
+    "${TEXTURE_DIR}/*.bmp"
+    "${TEXTURE_DIR}/*.tga"
+)
+
+foreach(texture_file ${TEXTURE_FILES})
+    # Get just the filename
+    get_filename_component(FILENAME ${texture_file} NAME)
+
+    add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${texture_file}"
+            "${CMAKE_BINARY_DIR}/scenefiles/maps/${FILENAME}"
+        COMMENT "Copying texture: ${FILENAME}"
+    )
+endforeach()
+
+# Copy any other scene files if they exist
+if(EXISTS ${RESOURCE_DIR})
+    file(GLOB_RECURSE SCENE_FILES
+        "${RESOURCE_DIR}/*.xml"
+        "${RESOURCE_DIR}/*.json"
+        "${RESOURCE_DIR}/*.txt"
+        "${RESOURCE_DIR}/*.scene"
+    )
+
+    foreach(scene_file ${SCENE_FILES})
+        # Get relative path from resource directory
+        file(RELATIVE_PATH REL_PATH ${RESOURCE_DIR} ${scene_file})
+        get_filename_component(REL_DIR ${REL_PATH} DIRECTORY)
+
+        if(REL_DIR)
+            add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+                COMMAND ${CMAKE_COMMAND} -E make_directory
+                    "${CMAKE_BINARY_DIR}/scenefiles/${REL_DIR}"
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                    "${scene_file}"
+                    "${CMAKE_BINARY_DIR}/scenefiles/${REL_PATH}"
+                COMMENT "Copying scene file: ${REL_PATH}"
+            )
+        else()
+            add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                    "${scene_file}"
+                    "${CMAKE_BINARY_DIR}/scenefiles/"
+                COMMENT "Copying scene file: ${scene_file}"
+            )
+        endif()
+    endforeach()
 endif()

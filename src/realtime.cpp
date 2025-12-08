@@ -49,7 +49,6 @@ Realtime::Realtime(QWidget *parent)
     m_baseFOV = 70.0f;
     m_currentFOV = 70.0f;
 
-    // Initialize texture flags
     m_useNormalMapping = false;
     m_useBumpMapping = false;
     m_bumpStrength = 100.0f;
@@ -61,12 +60,10 @@ void Realtime::finish() {
 
     m_shapeManager.destroyShapes();
 
-    // Clean up textures
     glDeleteTextures(1, &m_colorTexture);
     glDeleteTextures(1, &m_normalMapTexture);
     glDeleteTextures(1, &m_bumpMapTexture);
 
-    // Clean up shaders
     glDeleteProgram(m_shaderProgram);
     glDeleteProgram(m_blockShaderProgram);
 
@@ -91,7 +88,6 @@ void Realtime::initializeGL() {
 
     glErrorCheck();
 
-    // Create phong shader for regular shapes
     try {
         m_shaderProgram = ShaderLoader::createShaderProgram(
             ":/resources/shaders/phong.vert",
@@ -117,7 +113,6 @@ void Realtime::initializeGL() {
     m_k_sLoc = glGetUniformLocation(m_shaderProgram, "k_s");
     m_shininessLoc = glGetUniformLocation(m_shaderProgram, "shininess");
 
-    // Create block shader for bump mapping
     m_blockShaderProgram = 0;
     try {
         m_blockShaderProgram = ShaderLoader::createShaderProgram(
@@ -130,7 +125,6 @@ void Realtime::initializeGL() {
         std::cerr << "Falling back to phong shader for blocks" << std::endl;
     }
 
-    // Get uniform locations for block shader (only if shader compiled successfully)
     if (m_blockShaderProgram != 0) {
         m_blockModelLoc = glGetUniformLocation(m_blockShaderProgram, "model");
         m_blockProjLoc = glGetUniformLocation(m_blockShaderProgram, "projection");
@@ -144,12 +138,7 @@ void Realtime::initializeGL() {
         std::cout << "  cameraPos: " << m_blockCameraPosLoc << std::endl;
     }
 
-    // Load textures for bump mapping
-    loadTexture(m_colorTexture, ":/scenefiles/maps/grass_color.png");
-    loadTexture(m_normalMapTexture, ":/scenefiles/maps/grass_bump.png");
-    loadTexture(m_bumpMapTexture, ":/scenefiles/maps/grass_normal.png");
-
-    std::cout << "Created default textures for bump mapping" << std::endl;
+    loadTexture(m_colorTexture, "scenefiles/maps/wood_color.jpg");
 
     m_shapeManager.initShapes(settings.shapeParameter1, settings.shapeParameter2);
 
@@ -163,7 +152,7 @@ void Realtime::loadTexture(GLuint& textureID, const std::string& filepath) {
     QImage image(QString::fromStdString(filepath));
     if (image.isNull()) {
         std::cerr << "Failed to load texture: " << filepath << std::endl;
-        // Create a default white texture
+
         unsigned char whitePixel[] = {255, 255, 255, 255};
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, whitePixel);
     } else {
@@ -185,7 +174,6 @@ void Realtime::paintGL() {
     glClearColor(103/255.f, 142/255.f, 166/255.f, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Render regular shapes with phong shader
     glUseProgram(m_shaderProgram);
     glErrorCheck();
 
@@ -218,7 +206,6 @@ void Realtime::paintGL() {
     }
     glUseProgram(0);
 
-    // Render map blocks with bump mapping shader
     if (m_activeMap != nullptr && m_blockShaderProgram != 0) {
         Rendering::renderMapBlocksWithBumpMapping(this);
     }
@@ -373,20 +360,6 @@ void Realtime::setActiveMap(Map* map) {
 
 void Realtime::keyPressEvent(QKeyEvent *event) {
     m_keyMap[Qt::Key(event->key())] = true;
-
-    // Toggle normal mapping with 'N' key
-    if (event->key() == Qt::Key_N) {
-        m_useNormalMapping = !m_useNormalMapping;
-        std::cout << "Normal mapping: " << (m_useNormalMapping ? "ON" : "OFF") << std::endl;
-        update();
-    }
-
-    // Toggle bump mapping with 'B' key
-    if (event->key() == Qt::Key_B) {
-        m_useBumpMapping = !m_useBumpMapping;
-        std::cout << "Bump mapping: " << (m_useBumpMapping ? "ON" : "OFF") << std::endl;
-        update();
-    }
 }
 
 void Realtime::keyReleaseEvent(QKeyEvent *event) {
