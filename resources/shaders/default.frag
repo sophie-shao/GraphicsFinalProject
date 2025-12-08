@@ -33,7 +33,8 @@ uniform float k_a;
 uniform float k_d;
 uniform float k_s;
 
-// Normal and Bump mapping textures
+// Textures
+uniform sampler2D diffuseTexture;  // Add this uniform
 uniform sampler2D normalMap;
 uniform bool useNormalMap;
 uniform sampler2D bumpMap;
@@ -109,6 +110,9 @@ vec3 computeLightContribution(vec3 N, vec3 V, vec3 worldPos, Light light) {
 }
 
 void main() {
+    // Sample diffuse texture
+    vec4 texColor = texture(diffuseTexture, fragUV);
+
     // Compute normal based on mapping techniques
     vec3 N;
 
@@ -133,13 +137,13 @@ void main() {
 
     vec3 V = normalize(cameraPos - worldPos);
 
-    // Ambient component
-    vec3 total = material.cAmbient.rgb * k_a;
+    // Ambient component - multiply by texture
+    vec3 total = material.cAmbient.rgb * k_a * texColor.rgb;
 
-    // Add contribution from each light
+    // Add contribution from each light - multiply diffuse by texture
     for (int i = 0; i < numLights; ++i) {
-        total += computeLightContribution(N, V, worldPos, lights[i]);
+        total += computeLightContribution(N, V, worldPos, lights[i]) * texColor.rgb;
     }
 
-    color = vec4(total, 1.0);
+    color = vec4(total, texColor.a);
 }

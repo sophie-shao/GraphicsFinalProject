@@ -127,6 +127,8 @@ private:
     int m_blockVertexCount = 0;
 
     // Textures
+    GLuint m_dirtTexture;      // For cubes
+    GLuint m_woodTexture;
     GLuint m_colorTexture;
     GLuint m_normalMapTexture;
     GLuint m_bumpMapTexture;

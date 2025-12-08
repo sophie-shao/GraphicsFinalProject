@@ -123,50 +123,50 @@ void Realtime::initializeGL() {
     m_blockCameraPosLoc = glGetUniformLocation(m_blockShaderProgram, "cameraPos");
     m_blockNumLightsLoc = glGetUniformLocation(m_blockShaderProgram, "numLights");
 
-    // Load textures for normal and bump mapping
-    // Normal map texture
-    glGenTextures(1, &m_normalMapTexture);
-    glBindTexture(GL_TEXTURE_2D, m_normalMapTexture);
+    // Load dirt texture for blocks
+    glGenTextures(1, &m_dirtTexture);
+    glBindTexture(GL_TEXTURE_2D, m_dirtTexture);
 
-    // Load your normal map image here - adjust path as needed
-    QImage normalMapImage("scenefiles/maps/dirt.png");
-    if (normalMapImage.isNull()) {
-        std::cerr << "Failed to load normal map, creating default" << std::endl;
-        // Create a flat normal map (pointing straight up in tangent space)
-        unsigned char flatNormal[] = {128, 128, 255, 255};
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatNormal);
+    QImage dirtImage(":/resources/textures/dirt.png");
+    if (dirtImage.isNull()) {
+        std::cerr << "Failed to load dirt texture" << std::endl;
+        // Create a simple brown texture as fallback
+        unsigned char dirtColor[4] = {139, 69, 19, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, dirtColor);
     } else {
-        normalMapImage = normalMapImage.convertToFormat(QImage::Format_RGBA8888);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, normalMapImage.width(), normalMapImage.height(),
-                     0, GL_RGBA, GL_UNSIGNED_BYTE, normalMapImage.bits());
+        dirtImage = dirtImage.convertToFormat(QImage::Format_RGBA8888);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, dirtImage.width(), dirtImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, dirtImage.bits());
     }
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glBindTexture(GL_TEXTURE_2D, 0);
+    glGenerateMipmap(GL_TEXTURE_2D);
 
-    // Bump map texture (height map)
-    glGenTextures(1, &m_bumpMapTexture);
-    glBindTexture(GL_TEXTURE_2D, m_bumpMapTexture);
+    // Load wood texture for cylinders
+    glGenTextures(1, &m_woodTexture);
+    glBindTexture(GL_TEXTURE_2D, m_woodTexture);
 
-    QImage bumpImage("scenefiles/maps/dirt.png");
-    if (bumpImage.isNull()) {
-        std::cerr << "Failed to load bump map, creating default" << std::endl;
-        // Create a flat bump map
-        unsigned char flatBump[] = {128, 128, 128, 255};
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatBump);
+    QImage woodImage(":/resources/textures/wood.png");
+    if (woodImage.isNull()) {
+        std::cerr << "Failed to load wood texture" << std::endl;
+        // Create a simple wood-colored texture as fallback
+        unsigned char woodColor[4] = {150, 111, 51, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, woodColor);
     } else {
-        bumpImage = bumpImage.convertToFormat(QImage::Format_RGBA8888);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bumpImage.width(), bumpImage.height(),
-                     0, GL_RGBA, GL_UNSIGNED_BYTE, bumpImage.bits());
+        woodImage = woodImage.convertToFormat(QImage::Format_RGBA8888);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, woodImage.width(), woodImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, woodImage.bits());
     }
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
     glBindTexture(GL_TEXTURE_2D, 0);
 
     m_shapeManager.initShapes(settings.shapeParameter1, settings.shapeParameter2);
@@ -174,48 +174,81 @@ void Realtime::initializeGL() {
 }
 
 void Realtime::paintGL() {
-
-    //NOT WHITE BACKGROUND
     glClearColor(103/255.f, 142/255.f, 166/255.f, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glUseProgram(m_shaderProgram);
-    glErrorCheck();
+    // First render all cylinders with wood texture
+    glUseProgram(m_blockShaderProgram); // Use the shader that supports normal/bump mapping
 
+    // Bind wood texture for cylinders
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, m_woodTexture);
+    glUniform1i(glGetUniformLocation(m_blockShaderProgram, "diffuseTexture"), 0);
+
+    // Set up camera and lighting
     glm::mat4 proj = m_camera.getProjMatrix();
     glm::mat4 view = m_camera.getViewMatrix();
     glm::vec3 camPos = m_camera.getPosition();
 
-    glUniformMatrix4fv(m_projLoc, 1, GL_FALSE, &proj[0][0]);
-    glUniformMatrix4fv(m_viewLoc, 1, GL_FALSE, &view[0][0]);
-    glUniform3fv(m_cameraPosLoc, 1, &camPos[0]);
+    glUniformMatrix4fv(m_blockProjLoc, 1, GL_FALSE, &proj[0][0]);
+    glUniformMatrix4fv(m_blockViewLoc, 1, GL_FALSE, &view[0][0]);
+    glUniform3fv(m_blockCameraPosLoc, 1, &camPos[0]);
 
-    glUniform1f(m_k_aLoc, m_globalData.ka);
-    glUniform1f(m_k_dLoc, m_globalData.kd);
-    glUniform1f(m_k_sLoc, m_globalData.ks);
+    // Set lighting uniforms
+    addLightsToBlockShader(m_lights);
 
+    // Set k values
+    glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_a"), m_globalData.ka);
+    glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_d"), m_globalData.kd);
+    glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_s"), m_globalData.ks);
+
+    // Render cylinders from scene
     for (const auto &shape : m_shapes) {
-        const ShapeData &data = m_shapeManager.getShapeData(shape.primitive.type);
-        const SceneMaterial &mat = shape.primitive.material;
-        glUniformMatrix4fv(m_modelLoc, 1, GL_FALSE, &shape.ctm[0][0]);
-        glErrorCheck();
+        if (shape.primitive.type == PrimitiveType::PRIMITIVE_CYLINDER) {
+            const ShapeData &data = m_shapeManager.getShapeData(shape.primitive.type);
+            const SceneMaterial &mat = shape.primitive.material;
 
-        glUniform4fv(mat_cAmbientLoc, 1, &mat.cAmbient[0]);
-        glUniform4fv(mat_cDiffuseLoc, 1, &mat.cDiffuse[0]);
-        glUniform4fv(mat_cSpecularLoc, 1, &mat.cSpecular[0]);
-        glUniform1f(mat_shinyLoc, mat.shininess);
-        glErrorCheck();
+            glUniformMatrix4fv(m_blockModelLoc, 1, GL_FALSE, &shape.ctm[0][0]);
 
-        glBindVertexArray(data.vao);
-        glDrawArrays(GL_TRIANGLES, 0, data.numVertices);
+            // Set material uniforms
+            GLuint mat_cAmbientLoc = glGetUniformLocation(m_blockShaderProgram, "material.cAmbient");
+            GLuint mat_cDiffuseLoc = glGetUniformLocation(m_blockShaderProgram, "material.cDiffuse");
+            GLuint mat_cSpecularLoc = glGetUniformLocation(m_blockShaderProgram, "material.cSpecular");
+            GLuint mat_shinyLoc = glGetUniformLocation(m_blockShaderProgram, "material.shininess");
+
+            glUniform4fv(mat_cAmbientLoc, 1, &mat.cAmbient[0]);
+            glUniform4fv(mat_cDiffuseLoc, 1, &mat.cDiffuse[0]);
+            glUniform4fv(mat_cSpecularLoc, 1, &mat.cSpecular[0]);
+            glUniform1f(mat_shinyLoc, mat.shininess);
+
+            glBindVertexArray(data.vao);
+            glDrawArrays(GL_TRIANGLES, 0, data.numVertices);
+        }
     }
 
-    if (m_activeMap != nullptr) {
-        Rendering::renderMapBlocks(this);
-    }
-
-    glErrorCheck();
+    glBindTexture(GL_TEXTURE_2D, 0);
     glUseProgram(0);
+
+    // Now render blocks with dirt texture
+    if (m_activeMap != nullptr) {
+        glUseProgram(m_blockShaderProgram);
+
+        // Bind dirt texture for blocks
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, m_dirtTexture);
+        glUniform1i(glGetUniformLocation(m_blockShaderProgram, "diffuseTexture"), 0);
+
+        // Set camera and lighting again
+        glUniformMatrix4fv(m_blockProjLoc, 1, GL_FALSE, &proj[0][0]);
+        glUniformMatrix4fv(m_blockViewLoc, 1, GL_FALSE, &view[0][0]);
+        glUniform3fv(m_blockCameraPosLoc, 1, &camPos[0]);
+
+        // Render blocks
+        Rendering::renderMapBlocks(this);
+
+        glBindTexture(GL_TEXTURE_2D, 0);
+        glUseProgram(0);
+    }
 }
 
 void Realtime::resizeGL(int w, int h) {
