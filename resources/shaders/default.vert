@@ -1,49 +1,34 @@
 #version 330 core
 
-layout(location=0) in vec3 pos;
-layout(location=1) in vec3 normal;
-
-out vec3 worldPos;
-out vec3 worldNormal;
-out vec2 fragUV;
-out mat3 TBN;
+layout(location = 0) in vec3 position;
+layout(location = 1) in vec3 normal;
+layout(location = 2) in vec3 tangent;
+layout(location = 3) in vec3 bitangent;
+layout(location = 4) in vec2 uv;
 
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 
+out vec3 fragNormal;
+out vec3 fragPosition;
+out vec2 fragUV;
+out mat3 TBN;
+
 void main() {
-    vec4 worldPosition4 = model * vec4(pos, 1.0);
-    worldPos = worldPosition4.xyz;
 
-    mat3 normalMatrix = transpose(inverse(mat3(model)));
-    worldNormal = normalize(normalMatrix * normal);
+    fragPosition = vec3(model * vec4(position, 1.0));
 
-    // Generate UVs based on position (planar mapping)
-    vec3 absNormal = abs(worldNormal);
-    if (absNormal.y > 0.9) { // Top/Bottom face
-        fragUV = vec2(pos.x, pos.z);
-    } else if (absNormal.x > 0.9) { // Left/Right face
-        fragUV = vec2(pos.z, pos.y);
-    } else { // Front/Back face
-        fragUV = vec2(pos.x, pos.y);
-    }
+    fragUV = uv;
 
-    // Generate tangent space for axis-aligned cubes
-    vec3 T, B;
-    if (absNormal.y > 0.9) {
-        T = vec3(1, 0, 0);
-        B = vec3(0, 0, 1);
-    } else if (absNormal.x > 0.9) {
-        T = vec3(0, 0, 1);
-        B = vec3(0, 1, 0);
-    } else {
-        T = vec3(1, 0, 0);
-        B = vec3(0, 1, 0);
-    }
-    T = normalize(normalMatrix * T);
-    B = normalize(normalMatrix * B);
-    TBN = mat3(T, B, worldNormal);
+    mat3 normalMatrix = mat3(transpose(inverse(model)));
 
-    gl_Position = projection * view * worldPosition4;
+    vec3 T = normalize(normalMatrix * tangent);
+    vec3 B = normalize(normalMatrix * bitangent);
+    vec3 N = normalize(normalMatrix * normal);
+    TBN = mat3(T, B, N);
+
+    fragNormal = N;
+
+    gl_Position = projection * view * model * vec4(position, 1.0);
 }

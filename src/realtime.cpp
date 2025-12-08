@@ -48,25 +48,16 @@ Realtime::Realtime(QWidget *parent)
     m_playerLightColor = glm::vec3(1.0f, 1.0f, 1.0f);
     m_baseFOV = 70.0f;
     m_currentFOV = 70.0f;
-
-    m_useNormalMapping = false;
-    m_useBumpMapping = false;
-    m_bumpStrength = 100.0f;
+    m_baseFOV = 70.0f;
+    m_currentFOV = 70.0f;
 }
 
 void Realtime::finish() {
     killTimer(m_timer);
     this->makeCurrent();
 
+    // Students: anything requiring OpenGL calls when the program exits should be done here
     m_shapeManager.destroyShapes();
-
-    glDeleteTextures(1, &m_colorTexture);
-    glDeleteTextures(1, &m_normalMapTexture);
-    glDeleteTextures(1, &m_bumpMapTexture);
-
-    glDeleteProgram(m_shaderProgram);
-    glDeleteProgram(m_blockShaderProgram);
-
     this->doneCurrent();
 }
 
@@ -88,6 +79,8 @@ void Realtime::initializeGL() {
 
     glErrorCheck();
 
+
+    //error check this bad boy
     try {
         m_shaderProgram = ShaderLoader::createShaderProgram(
             ":/resources/shaders/phong.vert",
@@ -113,64 +106,15 @@ void Realtime::initializeGL() {
     m_k_sLoc = glGetUniformLocation(m_shaderProgram, "k_s");
     m_shininessLoc = glGetUniformLocation(m_shaderProgram, "shininess");
 
-    m_blockShaderProgram = 0;
-    try {
-        m_blockShaderProgram = ShaderLoader::createShaderProgram(
-            ":/resources/shaders/default.vert",
-            ":/resources/shaders/default.frag"
-            );
-        std::cout << "Block shader created successfully, ID: " << m_blockShaderProgram << std::endl;
-    } catch (const std::runtime_error &e) {
-        std::cerr << "Block shader compile/link error: " << e.what() << std::endl;
-        std::cerr << "Falling back to phong shader for blocks" << std::endl;
-    }
-
-    if (m_blockShaderProgram != 0) {
-        m_blockModelLoc = glGetUniformLocation(m_blockShaderProgram, "model");
-        m_blockProjLoc = glGetUniformLocation(m_blockShaderProgram, "projection");
-        m_blockViewLoc = glGetUniformLocation(m_blockShaderProgram, "view");
-        m_blockCameraPosLoc = glGetUniformLocation(m_blockShaderProgram, "cameraPos");
-
-        std::cout << "Block shader uniform locations:" << std::endl;
-        std::cout << "  model: " << m_blockModelLoc << std::endl;
-        std::cout << "  projection: " << m_blockProjLoc << std::endl;
-        std::cout << "  view: " << m_blockViewLoc << std::endl;
-        std::cout << "  cameraPos: " << m_blockCameraPosLoc << std::endl;
-    }
-
-    loadTexture(m_colorTexture, "scenefiles/maps/wood_color.jpg");
-
+    // makeCurrent();
     m_shapeManager.initShapes(settings.shapeParameter1, settings.shapeParameter2);
-
+    // doneCurrent();
     glErrorCheck();
 }
 
-void Realtime::loadTexture(GLuint& textureID, const std::string& filepath) {
-    glGenTextures(1, &textureID);
-    glBindTexture(GL_TEXTURE_2D, textureID);
-
-    QImage image(QString::fromStdString(filepath));
-    if (image.isNull()) {
-        std::cerr << "Failed to load texture: " << filepath << std::endl;
-
-        unsigned char whitePixel[] = {255, 255, 255, 255};
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, whitePixel);
-    } else {
-        std::cout << "Loaded texture: " << filepath << " (" << image.width() << "x" << image.height() << ")" << std::endl;
-        image = image.convertToFormat(QImage::Format_RGBA8888).mirrored();
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.width(), image.height(),
-                     0, GL_RGBA, GL_UNSIGNED_BYTE, image.bits());
-    }
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-    glBindTexture(GL_TEXTURE_2D, 0);
-}
-
 void Realtime::paintGL() {
+
+    //NOT WHITE BACKGROUND
     glClearColor(103/255.f, 142/255.f, 166/255.f, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -204,13 +148,13 @@ void Realtime::paintGL() {
         glBindVertexArray(data.vao);
         glDrawArrays(GL_TRIANGLES, 0, data.numVertices);
     }
-    glUseProgram(0);
 
-    if (m_activeMap != nullptr && m_blockShaderProgram != 0) {
-        Rendering::renderMapBlocksWithBumpMapping(this);
+    if (m_activeMap != nullptr) {
+        Rendering::renderMapBlocks(this);
     }
 
     glErrorCheck();
+    glUseProgram(0);
 }
 
 void Realtime::resizeGL(int w, int h) {
@@ -218,6 +162,7 @@ void Realtime::resizeGL(int w, int h) {
     float aspect = static_cast<float>(w) / static_cast<float>(h);
     m_camera.updateProjectionMatrix(aspect, settings.nearPlane, settings.farPlane);
 }
+
 
 void Realtime::sceneChanged() {
     glErrorCheck();
@@ -268,6 +213,7 @@ void Realtime::addLightsToShader(const std::vector<SceneLightData> &lights) {
     }
     glUseProgram(0);
 }
+
 
 void Realtime::settingsChanged() {
     m_camera.updateProjectionMatrix(
@@ -357,6 +303,7 @@ void Realtime::setActiveMap(Map* map) {
         update();
     }
 }
+
 
 void Realtime::keyPressEvent(QKeyEvent *event) {
     m_keyMap[Qt::Key(event->key())] = true;
@@ -498,7 +445,10 @@ void Realtime::setOverheadLightIntensity(double intensity) {
     m_overheadLightIntensity = intensity;
 }
 
+
+// DO NOT EDIT
 void Realtime::saveViewportImage(std::string filePath) {
+    // Make sure we have the right context and everything has been drawn
     makeCurrent();
 
     int fixedWidth = 1024;
