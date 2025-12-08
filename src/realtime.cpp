@@ -151,7 +151,7 @@ void Realtime::initializeGL() {
     glGenTextures(1, &m_bumpMapTexture);
     glBindTexture(GL_TEXTURE_2D, m_bumpMapTexture);
 
-    QImage bumpImage("scenefiles/maps/wood_bump.png");
+    QImage bumpImage("scenefiles/maps/dirt.png");
     if (bumpImage.isNull()) {
         std::cerr << "Failed to load bump map, creating default" << std::endl;
         // Create a flat bump map
