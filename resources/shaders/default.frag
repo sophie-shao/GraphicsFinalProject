@@ -1,7 +1,7 @@
 #version 330 core
 
 struct Light {
-    int type; // 0=directional, 1=point, 2=spot
+    int type;
     vec3 position;
     vec3 direction;
     vec3 color;
@@ -33,11 +33,14 @@ uniform float k_a;
 uniform float k_d;
 uniform float k_s;
 
-// Textures
-uniform sampler2D diffuseTexture;  // Add this uniform
+// Texture type selector: 0 = none, 1 = dirt, 2 = wood
+uniform int textureType;
+
 uniform sampler2D normalMap;
-uniform bool useNormalMap;
 uniform sampler2D bumpMap;
+
+// Texture mapping controls
+uniform bool useNormalMap;
 uniform bool useBumpMap;
 uniform float bumpStrength;
 
@@ -110,40 +113,62 @@ vec3 computeLightContribution(vec3 N, vec3 V, vec3 worldPos, Light light) {
 }
 
 void main() {
-    // Sample diffuse texture
-    vec4 texColor = texture(diffuseTexture, fragUV);
-
-    // Compute normal based on mapping techniques
     vec3 N;
 
-    if (useBumpMap && useNormalMap) {
-        // Hybrid mode: combine bump and normal mapping
-        vec3 bumpNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
-        vec3 normalMapNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
-        vec3 combinedNormal = normalize(bumpNormal * 0.5 + normalMapNormal * 0.5);
-        N = normalize(TBN * combinedNormal);
-    } else if (useBumpMap) {
-        // Bump mapping only
-        vec3 tangentSpaceNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
-        N = normalize(TBN * tangentSpaceNormal);
-    } else if (useNormalMap) {
-        // Normal mapping only
-        vec3 tangentSpaceNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
-        N = normalize(TBN * tangentSpaceNormal);
+    if (useNormalMap || useBumpMap) {
+        if (textureType == 1) {
+            if (useBumpMap && useNormalMap) {
+
+                vec3 bumpNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
+                vec3 normalMapNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
+                vec3 combinedNormal = normalize(bumpNormal * 0.5 + normalMapNormal * 0.5);
+                N = normalize(TBN * combinedNormal);
+
+            } else if (useBumpMap) {
+
+                vec3 tangentSpaceNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
+                N = normalize(TBN * tangentSpaceNormal);
+
+            } else if (useNormalMap) {
+
+                vec3 tangentSpaceNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
+                N = normalize(TBN * tangentSpaceNormal);
+            }
+        } else if (textureType == 2) {
+            if (useBumpMap && useNormalMap) {
+
+                vec3 bumpNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
+                vec3 normalMapNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
+                vec3 combinedNormal = normalize(bumpNormal * 0.5 + normalMapNormal * 0.5);
+                N = normalize(TBN * combinedNormal);
+
+            } else if (useBumpMap) {
+
+                vec3 tangentSpaceNormal = computeBumpNormal(bumpMap, fragUV, bumpStrength);
+                N = normalize(TBN * tangentSpaceNormal);
+
+            } else if (useNormalMap) {
+
+                vec3 tangentSpaceNormal = texture(normalMap, fragUV).rgb * 2.0 - 1.0;
+                N = normalize(TBN * tangentSpaceNormal);
+            }
+        } else {
+            N = normalize(worldNormal);
+        }
     } else {
-        // No mapping - use interpolated normal
         N = normalize(worldNormal);
     }
 
     vec3 V = normalize(cameraPos - worldPos);
 
-    // Ambient component - multiply by texture
-    vec3 total = material.cAmbient.rgb * k_a * texColor.rgb;
+    vec3 baseColor = material.cDiffuse.rgb;
 
-    // Add contribution from each light - multiply diffuse by texture
+    vec3 total = material.cAmbient.rgb * k_a;
+
     for (int i = 0; i < numLights; ++i) {
-        total += computeLightContribution(N, V, worldPos, lights[i]) * texColor.rgb;
+        vec3 lightContribution = computeLightContribution(N, V, worldPos, lights[i]);
+        total += lightContribution;
     }
 
-    color = vec4(total, texColor.a);
+    color = vec4(total, 1.0);
 }

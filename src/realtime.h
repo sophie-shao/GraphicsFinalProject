@@ -126,15 +126,14 @@ private:
     GLuint m_blockVBO = 0;
     int m_blockVertexCount = 0;
 
-    // Textures
-    GLuint m_dirtTexture;      // For cubes
-    GLuint m_woodTexture;
-    GLuint m_colorTexture;
-    GLuint m_normalMapTexture;
-    GLuint m_bumpMapTexture;
+    // Texture handles
+    GLuint m_dirtNormalMap;
+    GLuint m_dirtBumpMap;
+    GLuint m_woodNormalMap;
+    GLuint m_woodBumpMap;
 
-    // Bump mapping flags
-    bool m_useNormalMapping = false;
-    bool m_useBumpMapping = false;
-    float m_bumpStrength = 10.0f;
+    // Texture mapping controls
+    bool m_useNormalMapping = true;
+    bool m_useBumpMapping = true;
+    float m_bumpStrength = 1.0f;
 };

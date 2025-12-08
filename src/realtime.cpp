@@ -123,49 +123,83 @@ void Realtime::initializeGL() {
     m_blockCameraPosLoc = glGetUniformLocation(m_blockShaderProgram, "cameraPos");
     m_blockNumLightsLoc = glGetUniformLocation(m_blockShaderProgram, "numLights");
 
-    // Load dirt texture for blocks
-    glGenTextures(1, &m_dirtTexture);
-    glBindTexture(GL_TEXTURE_2D, m_dirtTexture);
+    // Load dirt normal map
+    glGenTextures(1, &m_dirtNormalMap);
+    glBindTexture(GL_TEXTURE_2D, m_dirtNormalMap);
 
-    QImage dirtImage(":/scenefiles/maps/dirt.png");
-    if (dirtImage.isNull()) {
-        std::cerr << "Failed to load dirt texture" << std::endl;
-        // Create a simple brown texture as fallback
-        unsigned char dirtColor[4] = {139, 69, 19, 255};
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, dirtColor);
+    QImage dirtNormalImage("scenefiles/maps/dirt.png");
+    if (dirtNormalImage.isNull()) {
+        std::cerr << "Failed to load dirt normal map" << std::endl;
+        // Create default normal (pointing up)
+        unsigned char flatNormal[] = {128, 128, 255, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatNormal);
     } else {
-        dirtImage = dirtImage.convertToFormat(QImage::Format_RGBA8888);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, dirtImage.width(), dirtImage.height(),
-                     0, GL_RGBA, GL_UNSIGNED_BYTE, dirtImage.bits());
+        dirtNormalImage = dirtNormalImage.convertToFormat(QImage::Format_RGBA8888);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, dirtNormalImage.width(), dirtNormalImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, dirtNormalImage.bits());
     }
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glGenerateMipmap(GL_TEXTURE_2D);
 
-    // Load wood texture for cylinders
-    glGenTextures(1, &m_woodTexture);
-    glBindTexture(GL_TEXTURE_2D, m_woodTexture);
+    // Load dirt bump map
+    glGenTextures(1, &m_dirtBumpMap);
+    glBindTexture(GL_TEXTURE_2D, m_dirtBumpMap);
 
-    QImage woodImage(":/scenefiles/maps/wood_bump.png");
-    if (woodImage.isNull()) {
-        std::cerr << "Failed to load wood texture" << std::endl;
-        // Create a simple wood-colored texture as fallback
-        unsigned char woodColor[4] = {150, 111, 51, 255};
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, woodColor);
+    QImage dirtBumpImage("scenefiles/maps/dirt.png");
+    if (dirtBumpImage.isNull()) {
+        std::cerr << "Failed to load dirt bump map" << std::endl;
+        unsigned char flatBump[] = {128, 128, 128, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatBump);
     } else {
-        woodImage = woodImage.convertToFormat(QImage::Format_RGBA8888);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, woodImage.width(), woodImage.height(),
-                     0, GL_RGBA, GL_UNSIGNED_BYTE, woodImage.bits());
+        dirtBumpImage = dirtBumpImage.convertToFormat(QImage::Format_RGBA8888);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, dirtBumpImage.width(), dirtBumpImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, dirtBumpImage.bits());
     }
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glGenerateMipmap(GL_TEXTURE_2D);
+
+    // Load wood normal map - FIXED: use woodNormalImage not dirtNormalImage
+    glGenTextures(1, &m_woodNormalMap);
+    glBindTexture(GL_TEXTURE_2D, m_woodNormalMap);
+
+    QImage woodNormalImage("scenefiles/maps/wood_normal.png");
+    if (woodNormalImage.isNull()) {
+        std::cerr << "Failed to load wood normal map" << std::endl;
+        // Create default normal (pointing up)
+        unsigned char flatNormal[] = {128, 128, 255, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatNormal);
+    } else {
+        woodNormalImage = woodNormalImage.convertToFormat(QImage::Format_RGBA8888); // FIXED: use woodNormalImage
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, woodNormalImage.width(), woodNormalImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, woodNormalImage.bits());
+    }
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    // Load wood bump map
+    glGenTextures(1, &m_woodBumpMap);
+    glBindTexture(GL_TEXTURE_2D, m_woodBumpMap);
+
+    QImage woodBumpImage("scenefiles/maps/wood_bump.png");
+    if (woodBumpImage.isNull()) {
+        std::cerr << "Failed to load wood bump map" << std::endl;
+        unsigned char flatBump[] = {128, 128, 128, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, flatBump);
+    } else {
+        woodBumpImage = woodBumpImage.convertToFormat(QImage::Format_RGBA8888);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, woodBumpImage.width(), woodBumpImage.height(),
+                     0, GL_RGBA, GL_UNSIGNED_BYTE, woodBumpImage.bits());
+    }
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
     glBindTexture(GL_TEXTURE_2D, 0);
 
@@ -177,19 +211,15 @@ void Realtime::paintGL() {
     glClearColor(103/255.f, 142/255.f, 166/255.f, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // First render all cylinders with wood texture
-    glUseProgram(m_blockShaderProgram); // Use the shader that supports normal/bump mapping
-
-    // Bind wood texture for cylinders
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, m_woodTexture);
-    glUniform1i(glGetUniformLocation(m_blockShaderProgram, "diffuseTexture"), 0);
-
-    // Set up camera and lighting
+    // Set up camera and lighting (common for both)
     glm::mat4 proj = m_camera.getProjMatrix();
     glm::mat4 view = m_camera.getViewMatrix();
     glm::vec3 camPos = m_camera.getPosition();
 
+    // First render all cylinders with wood texture
+    glUseProgram(m_blockShaderProgram);
+
+    // Set camera and lighting
     glUniformMatrix4fv(m_blockProjLoc, 1, GL_FALSE, &proj[0][0]);
     glUniformMatrix4fv(m_blockViewLoc, 1, GL_FALSE, &view[0][0]);
     glUniform3fv(m_blockCameraPosLoc, 1, &camPos[0]);
@@ -202,53 +232,60 @@ void Realtime::paintGL() {
     glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_d"), m_globalData.kd);
     glUniform1f(glGetUniformLocation(m_blockShaderProgram, "k_s"), m_globalData.ks);
 
+    // Set texture mapping controls
+    glUniform1i(glGetUniformLocation(m_blockShaderProgram, "useNormalMap"), m_useNormalMapping);
+    glUniform1i(glGetUniformLocation(m_blockShaderProgram, "useBumpMap"), m_useBumpMapping);
+    glUniform1f(glGetUniformLocation(m_blockShaderProgram, "bumpStrength"), m_bumpStrength);
+
     // Render cylinders from scene
-    for (const auto &shape : m_shapes) {
-        if (shape.primitive.type == PrimitiveType::PRIMITIVE_CYLINDER) {
-            const ShapeData &data = m_shapeManager.getShapeData(shape.primitive.type);
-            const SceneMaterial &mat = shape.primitive.material;
+    if (!m_shapes.empty()) {
+        glUniform1i(glGetUniformLocation(m_blockShaderProgram, "textureType"), 2); // 2 = wood
 
-            glUniformMatrix4fv(m_blockModelLoc, 1, GL_FALSE, &shape.ctm[0][0]);
-
-            // Set material uniforms
-            GLuint mat_cAmbientLoc = glGetUniformLocation(m_blockShaderProgram, "material.cAmbient");
-            GLuint mat_cDiffuseLoc = glGetUniformLocation(m_blockShaderProgram, "material.cDiffuse");
-            GLuint mat_cSpecularLoc = glGetUniformLocation(m_blockShaderProgram, "material.cSpecular");
-            GLuint mat_shinyLoc = glGetUniformLocation(m_blockShaderProgram, "material.shininess");
-
-            glUniform4fv(mat_cAmbientLoc, 1, &mat.cAmbient[0]);
-            glUniform4fv(mat_cDiffuseLoc, 1, &mat.cDiffuse[0]);
-            glUniform4fv(mat_cSpecularLoc, 1, &mat.cSpecular[0]);
-            glUniform1f(mat_shinyLoc, mat.shininess);
-
-            glBindVertexArray(data.vao);
-            glDrawArrays(GL_TRIANGLES, 0, data.numVertices);
-        }
-    }
-
-    glBindTexture(GL_TEXTURE_2D, 0);
-    glUseProgram(0);
-
-    // Now render blocks with dirt texture
-    if (m_activeMap != nullptr) {
-        glUseProgram(m_blockShaderProgram);
-
-        // Bind dirt texture for blocks
+        // Bind wood textures
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, m_dirtTexture);
-        glUniform1i(glGetUniformLocation(m_blockShaderProgram, "diffuseTexture"), 0);
+        glBindTexture(GL_TEXTURE_2D, m_woodNormalMap);
+        glUniform1i(glGetUniformLocation(m_blockShaderProgram, "normalMap"), 0);
 
-        // Set camera and lighting again
-        glUniformMatrix4fv(m_blockProjLoc, 1, GL_FALSE, &proj[0][0]);
-        glUniformMatrix4fv(m_blockViewLoc, 1, GL_FALSE, &view[0][0]);
-        glUniform3fv(m_blockCameraPosLoc, 1, &camPos[0]);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, m_woodBumpMap);
+        glUniform1i(glGetUniformLocation(m_blockShaderProgram, "bumpMap"), 1);
 
-        // Render blocks
-        Rendering::renderMapBlocks(this);
+        for (const auto &shape : m_shapes) {
+            if (shape.primitive.type == PrimitiveType::PRIMITIVE_CYLINDER) {
+                const ShapeData &data = m_shapeManager.getShapeData(shape.primitive.type);
+                const SceneMaterial &mat = shape.primitive.material;
 
+                glUniformMatrix4fv(m_blockModelLoc, 1, GL_FALSE, &shape.ctm[0][0]);
+
+                // Set material uniforms
+                GLuint mat_cAmbientLoc = glGetUniformLocation(m_blockShaderProgram, "material.cAmbient");
+                GLuint mat_cDiffuseLoc = glGetUniformLocation(m_blockShaderProgram, "material.cDiffuse");
+                GLuint mat_cSpecularLoc = glGetUniformLocation(m_blockShaderProgram, "material.cSpecular");
+                GLuint mat_shinyLoc = glGetUniformLocation(m_blockShaderProgram, "material.shininess");
+
+                glUniform4fv(mat_cAmbientLoc, 1, &mat.cAmbient[0]);
+                glUniform4fv(mat_cDiffuseLoc, 1, &mat.cDiffuse[0]);
+                glUniform4fv(mat_cSpecularLoc, 1, &mat.cSpecular[0]);
+                glUniform1f(mat_shinyLoc, mat.shininess);
+
+                glBindVertexArray(data.vao);
+                glDrawArrays(GL_TRIANGLES, 0, data.numVertices);
+            }
+        }
+
+        // Unbind wood textures
+        glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, 0);
-        glUseProgram(0);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, 0);
     }
+
+    // Now render blocks with dirt texture - renderMapBlocks will handle its own setup
+    if (m_activeMap != nullptr) {
+        Rendering::renderMapBlocks(this);
+    }
+
+    glUseProgram(0);
 }
 
 void Realtime::resizeGL(int w, int h) {

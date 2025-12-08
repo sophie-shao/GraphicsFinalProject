@@ -62,14 +62,11 @@ void Rendering::renderMapBlocks(Realtime* realtime) {
 
     glm::vec3 cameraPos = realtime->m_camera.getPosition();
 
-    // Setup lighting
     std::vector<SceneLightData> lights;
     setupMapLights(realtime, cameraPos, lights);
 
-    // Use block shader program
     glUseProgram(realtime->m_blockShaderProgram);
 
-    // Set up view and projection matrices
     glm::mat4 proj = realtime->m_camera.getProjMatrix();
     glm::mat4 view = realtime->m_camera.getViewMatrix();
 
@@ -77,23 +74,34 @@ void Rendering::renderMapBlocks(Realtime* realtime) {
     glUniformMatrix4fv(realtime->m_blockViewLoc, 1, GL_FALSE, &view[0][0]);
     glUniform3fv(realtime->m_blockCameraPosLoc, 1, &cameraPos[0]);
 
-    // Set up lighting uniforms
     realtime->addLightsToBlockShader(lights);
 
-    // Bind textures for normal and bump mapping
+    glUniform1f(glGetUniformLocation(realtime->m_blockShaderProgram, "k_a"), realtime->m_globalData.ka);
+    glUniform1f(glGetUniformLocation(realtime->m_blockShaderProgram, "k_d"), realtime->m_globalData.kd);
+    glUniform1f(glGetUniformLocation(realtime->m_blockShaderProgram, "k_s"), realtime->m_globalData.ks);
+
+    glUniform1i(glGetUniformLocation(realtime->m_blockShaderProgram, "useNormalMap"), realtime->m_useNormalMapping ? 1 : 0);
+    glUniform1i(glGetUniformLocation(realtime->m_blockShaderProgram, "useBumpMap"), realtime->m_useBumpMapping ? 1 : 0);
+    glUniform1f(glGetUniformLocation(realtime->m_blockShaderProgram, "bumpStrength"), realtime->m_bumpStrength);
+    glUniform1i(glGetUniformLocation(realtime->m_blockShaderProgram, "textureType"), 1); // 1 = dirt
+
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, realtime->m_normalMapTexture);
-    glUniform1i(glGetUniformLocation(realtime->m_blockShaderProgram, "normalMap"), 0);
-    glUniform1i(glGetUniformLocation(realtime->m_blockShaderProgram, "useNormalMap"),
-                realtime->m_useNormalMapping ? 1 : 0);
+    glBindTexture(GL_TEXTURE_2D, realtime->m_dirtNormalMap);
+    GLint normalMapLoc = glGetUniformLocation(realtime->m_blockShaderProgram, "normalMap");
+    if (normalMapLoc == -1) {
+        std::cerr << "ERROR: 'normalMap' uniform not found in shader!" << std::endl;
+    } else {
+        glUniform1i(normalMapLoc, 0);
+    }
 
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, realtime->m_bumpMapTexture);
-    glUniform1i(glGetUniformLocation(realtime->m_blockShaderProgram, "bumpMap"), 1);
-    glUniform1i(glGetUniformLocation(realtime->m_blockShaderProgram, "useBumpMap"),
-                realtime->m_useBumpMapping ? 1 : 0);
-    glUniform1f(glGetUniformLocation(realtime->m_blockShaderProgram, "bumpStrength"),
-                realtime->m_bumpStrength);
+    glBindTexture(GL_TEXTURE_2D, realtime->m_dirtBumpMap);
+    GLint bumpMapLoc = glGetUniformLocation(realtime->m_blockShaderProgram, "bumpMap");
+    if (bumpMapLoc == -1) {
+        std::cerr << "ERROR: 'bumpMap' uniform not found in shader!" << std::endl;
+    } else {
+        glUniform1i(bumpMapLoc, 1);
+    }
 
     int renderDistance = 4;
     auto blocks = realtime->m_activeMap->getBlocksInRenderDistance(cameraPos, renderDistance);
@@ -101,14 +109,17 @@ void Rendering::renderMapBlocks(Realtime* realtime) {
     if (blocks.empty()) {
         blocks = realtime->m_activeMap->getBlocksToRender();
         if (blocks.empty()) {
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, 0);
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, 0);
+            glUseProgram(0);
             return;
         }
     }
 
-    // Get block geometry (assumed to have a Block VAO setup in realtime)
-    // You'll need to create this similar to how ShapeData works
     if (realtime->m_blockVAO == 0) {
-        // Initialize block VAO if not already done
+
         Block block;
         const auto& vertexData = block.getVertexData();
 
@@ -178,15 +189,21 @@ void Rendering::renderMapBlocks(Realtime* realtime) {
         GLint specularLoc = glGetUniformLocation(realtime->m_blockShaderProgram, "material.cSpecular");
         GLint shinyLoc = glGetUniformLocation(realtime->m_blockShaderProgram, "material.shininess");
 
-        glUniform4fv(ambientLoc, 1, &mat.cAmbient[0]);
-        glUniform4fv(diffuseLoc, 1, &mat.cDiffuse[0]);
-        glUniform4fv(specularLoc, 1, &mat.cSpecular[0]);
-        glUniform1f(shinyLoc, mat.shininess);
+        if (ambientLoc != -1) glUniform4fv(ambientLoc, 1, &mat.cAmbient[0]);
+        if (diffuseLoc != -1) glUniform4fv(diffuseLoc, 1, &mat.cDiffuse[0]);
+        if (specularLoc != -1) glUniform4fv(specularLoc, 1, &mat.cSpecular[0]);
+        if (shinyLoc != -1) glUniform1f(shinyLoc, mat.shininess);
 
         glDrawArrays(GL_TRIANGLES, 0, realtime->m_blockVertexCount);
     }
 
     glBindVertexArray(0);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
     glUseProgram(0);
     glErrorCheck();
 }
