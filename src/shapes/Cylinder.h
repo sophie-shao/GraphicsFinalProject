@@ -1,29 +1,45 @@
 #pragma once
 
-#include "Shape.h"
+#include <vector>
 #include <glm/glm.hpp>
 
-class Cylinder : public Shape {
+class Cylinder
+{
 public:
-    Cylinder(): Shape() {}
-    int minParam1() const override { return 1; }
-    int minParam2() const override { return 2; }
-
-    void setVertexData() override;
+    void updateParams(int param1, int param2);
+    std::vector<float> generateShape() { return m_vertexData; }
+    const std::vector<float>& getVertexData() const { return m_vertexData; }
 
 private:
-    glm::vec3 calcSideNormal(glm::vec3 pt);
+    void insertVec3(std::vector<float> &data, glm::vec3 v);
+    void insertVec2(std::vector<float> &data, glm::vec2 v);
+    void setVertexData();
 
-    void makeCapTile(glm::vec3 center, glm::vec3 edge1, glm::vec3 edge2, glm::vec3 normal);
-    void makeCapSlice(float currentTheta, float nextTheta, bool top);
+    std::vector<float> m_vertexData;
+    int m_param1;
+    int m_param2;
+    float m_radius = 0.5;
+
+    void makeCapTile(glm::vec3 topLeft,
+                     glm::vec3 topRight,
+                     glm::vec3 bottomLeft,
+                     glm::vec3 bottomRight,
+                     glm::vec3 normal);
+
+    void makeTopCapTile(glm::vec3 topLeft,
+                        glm::vec3 topRight,
+                        glm::vec3 bottomLeft,
+                        glm::vec3 bottomRight,
+                        glm::vec3 normal);
+
+    void makeCapSlice(float currentTheta, float nextTheta, float y, glm::vec3 normal, bool isTop);
 
     void makeSideTile(glm::vec3 topLeft,
                       glm::vec3 topRight,
                       glm::vec3 bottomLeft,
                       glm::vec3 bottomRight);
+
     void makeSideSlice(float currentTheta, float nextTheta);
 
     void makeWedge(float currentTheta, float nextTheta);
-
-    float m_radius = 0.5f;
 };
