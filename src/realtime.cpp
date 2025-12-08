@@ -127,7 +127,7 @@ void Realtime::initializeGL() {
     glGenTextures(1, &m_dirtTexture);
     glBindTexture(GL_TEXTURE_2D, m_dirtTexture);
 
-    QImage dirtImage(":/resources/textures/dirt.png");
+    QImage dirtImage(":/scenefiles/maps/dirt.png");
     if (dirtImage.isNull()) {
         std::cerr << "Failed to load dirt texture" << std::endl;
         // Create a simple brown texture as fallback
@@ -149,7 +149,7 @@ void Realtime::initializeGL() {
     glGenTextures(1, &m_woodTexture);
     glBindTexture(GL_TEXTURE_2D, m_woodTexture);
 
-    QImage woodImage(":/resources/textures/wood.png");
+    QImage woodImage(":/scenefiles/maps/wood_bump.png");
     if (woodImage.isNull()) {
         std::cerr << "Failed to load wood texture" << std::endl;
         // Create a simple wood-colored texture as fallback
